@@ -24,12 +24,6 @@ class ContentPrestation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture",inversedBy="")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $facture;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="start_date", type="date", nullable=true)
@@ -220,6 +214,7 @@ class ContentPrestation
 
     /**
      * @ORM\PrePersist
+     * @ORM\PreUpdate
      */
     public function entityCompletion(){
         $diff = $this->getStartDate()->diff($this->getEndDate())->days;

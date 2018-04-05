@@ -14,16 +14,75 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FactureController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="111" column="70" selection-start-line="111" selection-start-column="70" selection-end-line="111" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#109#0" />
+                <element signature="e#303#329#0" />
+                <element signature="e#331#1072#0" />
+                <element signature="e#1095#1225#0" />
+                <element signature="e#1252#1955#0" />
+                <element signature="e#1266#1489#0" />
+                <element signature="e#1805#1955#0" />
+                <element signature="e#1985#2153#0" />
+                <element signature="e#2155#2390#0" />
+                <element signature="e#2485#2905#0" />
+                <element signature="e#4526#5871#0" />
+                <element signature="e#5814#6134#0" />
+                <element signature="e#6149#6281#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="321" column="130" selection-start-line="321" selection-start-column="12" selection-end-line="321" selection-end-column="130" />
+              <folding>
+                <element signature="e#297#364#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+              <folding>
+                <element signature="e#40#103#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+              <folding>
+                <element signature="e#36#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FactureController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="60" column="66" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
+            <state relative-caret-position="276">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
               <folding>
                 <element signature="e#124#163#0#PHP" expanded="true" />
-                <element signature="e#861#880#1#PHP" expanded="true" />
-                <element signature="e#911#940#1#PHP" expanded="true" />
-                <element signature="e#2288#2322#0#PHP" expanded="true" />
+                <element signature="e#969#988#1#PHP" expanded="true" />
+                <element signature="e#2788#2822#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -32,11 +91,8 @@
       <file leaf-file-name="ContentPrestation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3808">
-              <caret line="227" column="61" selection-start-line="227" selection-start-column="61" selection-end-line="227" selection-end-column="61" />
-              <folding>
-                <element signature="e#36#68#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="5" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -44,8 +100,11 @@
       <file leaf-file-name="Facture.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="374">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+              <folding>
+                <element signature="e#36#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,8 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>c</find>
-      <find>add</find>
       <find>query</find>
       <find>update</find>
       <find>create</find>
@@ -81,7 +138,11 @@
       <find>redirect</find>
       <find>setCl</find>
       <find>render</find>
+      <find>route</find>
+      <find>easy</find>
       <find>cons</find>
+      <find>uniq</find>
+      <find>uniqu</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp64\www\air-dg\vendor\easycorp\easyadmin-bundle\src\DependencyInjection</dir>
@@ -96,7 +157,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/FormatFacture.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TypeFacture.php" />
         <option value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Client.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/easyadmin/menu.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
@@ -108,11 +168,12 @@
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/new.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ContentPrestationType.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Facture.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Client.php" />
       </list>
     </option>
   </component>
@@ -299,6 +360,15 @@
               <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -455,12 +525,12 @@
       <workItem from="1522422811329" duration="3042000" />
       <workItem from="1522739238777" duration="28332000" />
       <workItem from="1522821725277" duration="31649000" />
-      <workItem from="1522908168173" duration="11860000" />
+      <workItem from="1522908168173" duration="24691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88939000" />
+    <option name="totallyTimeSpent" value="101770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1016" extended-state="6" />
@@ -489,24 +559,24 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Thumbnails" order="0" weight="0.32915717" />
-      <window_info id="Structure" order="1" sideWeight="0.50254667" side_tool="true" visible="true" weight="0.18656716" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49430525" visible="true" weight="0.19083156" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.32915717" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4974533" visible="true" weight="0.18656716" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Thumbnails" order="12" weight="0.32915717" />
+      <window_info id="Structure" order="1" sideWeight="0.50569475" side_tool="true" weight="0.19083156" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32915717" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32915717" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32963374" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32963374" />
-      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -697,13 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/easyadmin/menu.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -814,33 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="108" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="108" />
-          <folding>
-            <element signature="e#40#103#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="170" column="32" selection-start-line="170" selection-start-column="32" selection-end-line="170" selection-end-column="32" />
-          <folding>
-            <element signature="e#297#364#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="151" column="42" selection-start-line="151" selection-start-column="42" selection-end-line="151" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/menu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -868,32 +904,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3808">
-          <caret line="227" column="61" selection-start-line="227" selection-start-column="61" selection-end-line="227" selection-end-column="61" />
+        <state relative-caret-position="267">
+          <caret line="321" column="130" selection-start-line="321" selection-start-column="12" selection-end-line="321" selection-end-column="130" />
           <folding>
-            <element signature="e#36#68#0#PHP" expanded="true" />
+            <element signature="e#297#364#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="e#40#103#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding>
+            <element signature="e#124#163#0#PHP" expanded="true" />
+            <element signature="e#969#988#1#PHP" expanded="true" />
+            <element signature="e#2788#2822#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="374">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="60" column="66" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="5" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="111" column="70" selection-start-line="111" selection-start-column="70" selection-end-line="111" selection-end-column="70" />
           <folding>
-            <element signature="e#124#163#0#PHP" expanded="true" />
-            <element signature="e#861#880#1#PHP" expanded="true" />
-            <element signature="e#911#940#1#PHP" expanded="true" />
-            <element signature="e#2288#2322#0#PHP" expanded="true" />
+            <element signature="e#0#109#0" />
+            <element signature="e#303#329#0" />
+            <element signature="e#331#1072#0" />
+            <element signature="e#1095#1225#0" />
+            <element signature="e#1252#1955#0" />
+            <element signature="e#1266#1489#0" />
+            <element signature="e#1805#1955#0" />
+            <element signature="e#1985#2153#0" />
+            <element signature="e#2155#2390#0" />
+            <element signature="e#2485#2905#0" />
+            <element signature="e#4526#5871#0" />
+            <element signature="e#5814#6134#0" />
+            <element signature="e#6149#6281#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

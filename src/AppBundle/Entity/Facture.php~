@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="facture")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FactureRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Facture
 {
@@ -22,6 +23,12 @@ class Facture
     private $id;
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ContentPrestation")
+     * @ORM\JoinColumn(unique=true, nullable=false)
+     */
+    private $presta;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -32,6 +39,8 @@ class Facture
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
+
+
 
     /**
      * @var \DateTime
@@ -110,6 +119,7 @@ class Facture
   {
     // Par défaut, la date de l'annonce est la date d'aujourd'hui
     $this->creationDate = new \Datetime();
+    $this->lastUpdate = new \Datetime();
   }
 
     /**
@@ -134,5 +144,40 @@ class Facture
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \AppBundle\Entity\TypeFacture $type
+     *
+     * @return Facture
+     */
+    public function setType(\AppBundle\Entity\TypeFacture $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function __toString(){
+        return 'Facture n°' . $this->getId();
+    }
+
+    /**
+     * Get type
+     *
+     * @return \AppBundle\Entity\TypeFacture
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate(){
+        $this->setLastUpdate(new \Datetime());
     }
 }

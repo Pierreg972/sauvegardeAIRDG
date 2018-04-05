@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Client
@@ -25,6 +26,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(min=3, minMessage="Veuillez renter un nom plus long.")
      */
     private $name;
 
@@ -32,6 +34,7 @@ class Client
      * @var int
      *
      * @ORM\Column(name="society_number", type="integer")
+     * @Assert\Range(min=99999, minMessage="Veuillez saisir un numéro de société d'au minimum 6 chiffres")
      */
     private $societyNumber;
 
@@ -39,6 +42,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="head_office_addr", type="string", length=255)
+     * @Assert\Length(min=10, minMessage="Ceci est une adresse bien courte. Essayez-en une plus longue !")
      */
     private $headOfficeAddr;
 
@@ -46,6 +50,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255)
+     * @Assert\Length(min=2, minMessage="Pays trop court. Veuillez saisir au moins le code pays a 2 caractères.")
      */
     private $country;
 
@@ -53,6 +58,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="IBAN", type="string", length=255)
+     * @Assert\Length(min=16, max=16)
      */
     private $iban;
 
@@ -60,6 +66,7 @@ class Client
      * @var float
      *
      * @ORM\Column(name="tva_index", type="float")
+     * @Assert\Range(min=0.001, minMessage="Un indice à la TVA si bas est indécent !")
      */
     private $tvaIndex;
 

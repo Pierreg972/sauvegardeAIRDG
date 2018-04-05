@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\ContentPrestation;
 use AppBundle\Form\ContentPrestationType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Router\EasyAdminRouter;
 use Symfony\Component\Form\Extension\Core\Type\DateIntervalType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,25 +28,19 @@ class FactureController extends AdminController
         $id = $this->request->query->get('id');
         $factRepository = $this->getDoctrine()->getRepository('AppBundle:Facture');
         $facture = $factRepository->find($id);
-        //Récupération de la presta existante pour cette facture si elle existe
-        $prestaRepository = $this->getDoctrine()->getRepository('AppBundle:ContentPrestation');
-        $prestas = $prestaRepository->findBy(
-            array('facture' => $facture)
-        );
-        if(!$prestas==null) {
-            $presta = $prestas[0];
-            $this->get('session')->getFlashBag()->add('info', "Vous modifiez une prestation déjà présente en base !");
-        }
-        else{
-            $presta = new ContentPrestation();
-            $presta = $presta->setStartDate(new \DateTime('01-01-2018'));
-            $presta = $presta->setEndDate(new \DateTime('01-02-2018'));
-        }
-
         switch($facture->getType()){
 
             //Cas facture prestation
             case 'prestation':
+                if($facture->getPresta() != null) {
+                    $this->get('session')->getFlashBag()->add('info', "Vous modifiez une prestation déjà présente en base !");
+                    return $this->redirect(parent::generateUrl('easyadmin', array('action' => 'edit', 'entity' => 'Prestations', 'id' => $facture->getPresta()->getId())));
+                }
+                else{
+                    $presta = new ContentPrestation();
+                    $presta = $presta->setStartDate(new \DateTime('01-01-2018'));
+                    $presta = $presta->setEndDate(new \DateTime('01-02-2018'));
+                }
                 //Création d'un formulaire sur $presta avec le ContentPrestationType créé precedemment
                 $form = $this->get('form.factory')->create(ContentPrestationType::class, $presta);
 
@@ -54,11 +49,13 @@ class FactureController extends AdminController
                 if ($form->isSubmitted() && $form->isValid()) {
 
                     //Allocation de la facture a la prestation
-                    $presta = $presta->setFacture($facture);
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($presta);
                     $em->flush();
                     $this->get('session')->getFlashBag()->clear();
+                    $facture = $facture->setPresta($presta);
+                    $em->persist($facture);
+                    $em->flush();
                     $this->get('session')->getFlashBag()->add('info', "Prestation correctement ajoutée à la facture !");
                     return parent::redirectToBackendHomepage();
                 }

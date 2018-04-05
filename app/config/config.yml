@@ -87,35 +87,34 @@ easy_admin:
             class: AppBundle\Entity\Facture
             controller: AppBundle\Controller\FactureController
             list:
+                fields:
+                     - id
+                     - creationDate
+                     - lastUpdate
+                     - client
+                     - type
+                     - presta
                 actions: ['remplirFacture', 'show', '-edit']
             form:
                 fields:
-                    - creationDate
                     - type
                     - client
 
         Clients:
             class: AppBundle\Entity\Client
-            new:
+            form:
                 title: 'Rentrer un client en base de données'
                 fields:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
-                    - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
+                    - {property: 'headOfficeAddr', label: 'Adresse complète du siège social'}
                     - {property: 'country', label: 'Pays'}
-                    - iban
+                    - {property: 'iban', label: 'IBAN (sans espaces)'}
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
             edit:
                 title: "Mettre à jour un client"
-                fields:
-                    - {property: 'name', label: 'Nom'}
-                    - {property: 'societyNumber', label: 'Numero de société'}
-                    - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
-                    - {property: 'country', label: 'Pays'}
-                    - iban
-                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
             list:
-                actions: ['show', '-edit']
+                actions: ['show', '-edit', '-delete']
                 fields:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
@@ -123,6 +122,8 @@ easy_admin:
                     - {property: 'country', label: 'Pays'}
                     - iban
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
+            show:
+                actions: ['-delete']
         Administrateurs:
             class: AppBundle\Entity\User
             controller: AppBundle\Controller\UserController
@@ -150,7 +151,14 @@ easy_admin:
         Prestations:
             list:
                 actions: ['show', '-edit']
+            show:
+                actions: ['-delete']
             class: AppBundle\Entity\ContentPrestation
+            form:
+                fields:
+                    - startDate
+                    - endDate
+                    - unitPrice
 
     design:
         brand_color: '#0929DE'

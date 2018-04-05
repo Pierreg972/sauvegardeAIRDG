@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
 /**
  * ContentPrestation
@@ -24,22 +25,16 @@ class ContentPrestation
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Facture")
-     * @ORM\JoinColumn(unique=true, nullable=false)
-     */
-    private $facture;
-
-    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="start_date", type="date", nullable=true)
+     * @ORM\Column(name="start_date", type="date", nullable=false)
      */
     private $startDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end_date", type="date", nullable=true)
+     * @ORM\Column(name="end_date", type="date", nullable=false)
      */
     private $endDate;
 
@@ -47,6 +42,7 @@ class ContentPrestation
      * @var float
      *
      * @ORM\Column(name="unit_price", type="float")
+     * @Assert\Range(min=0, minMessage="Le prix unitaire saisi est trop bas.")
      */
     private $unitPrice;
 
@@ -195,30 +191,6 @@ class ContentPrestation
     }
 
     /**
-     * Set facture
-     *
-     * @param \AppBundle\Entity\Facture $facture
-     *
-     * @return ContentPrestation
-     */
-    public function setFacture(\AppBundle\Entity\Facture $facture)
-    {
-        $this->facture = $facture;
-
-        return $this;
-    }
-
-    /**
-     * Get facture
-     *
-     * @return \AppBundle\Entity\Facture
-     */
-    public function getFacture()
-    {
-        return $this->facture;
-    }
-
-    /**
      * @ORM\PrePersist
      * @ORM\PreUpdate
      */
@@ -226,5 +198,28 @@ class ContentPrestation
         $diff = $this->getStartDate()->diff($this->getEndDate())->days;
         $this->setQuantity($diff);
         $this->setTotalPrice($this->getUnitPrice()*$diff/28);
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function entityDeletion(){
+
+    }
+
+    /**
+     * @Assert\IsTrue(message="Vérifiez que les dates saisies sont valides !")
+     */
+    public function isDateTrue(){
+        if($this->startDate < $this->endDate){
+            return true;
+        }
+        else return false;
+    }
+
+    public function __construct()
+    {
+        $this->startDate = new \DateTime('01-01-2018');
+        $this->endDate = new \DateTime('02-02-2018');
     }
 }

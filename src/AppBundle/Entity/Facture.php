@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Facture
@@ -23,14 +24,23 @@ class Facture
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ContentPrestation", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @Assert\Valid()
+     */
+    private $presta;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=true)
+     * @Assert\Valid()
      */
     private $client;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeFacture")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\Valid()
      */
     private $type;
 
@@ -173,5 +183,29 @@ class Facture
      */
     public function updateDate(){
         $this->setLastUpdate(new \Datetime());
+    }
+
+    /**
+     * Set presta
+     *
+     * @param \AppBundle\Entity\ContentPrestation $presta
+     *
+     * @return Facture
+     */
+    public function setPresta(\AppBundle\Entity\ContentPrestation $presta)
+    {
+        $this->presta = $presta;
+
+        return $this;
+    }
+
+    /**
+     * Get presta
+     *
+     * @return \AppBundle\Entity\ContentPrestation
+     */
+    public function getPresta()
+    {
+        return $this->presta;
     }
 }
