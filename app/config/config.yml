@@ -1,0 +1,159 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    session:
+        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.project_dir%/var/data/data.sqlite"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #path: '%database_path%'
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: 'pierregourlat@gmail.com'
+    password: 'tennisman'
+    spool: { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "hello@aquanotes.com"
+        sender_name: "aquanotes postman"
+
+easy_admin:
+    site_name: 'AIR-DG'
+    formats:
+        date: 'd/m/Y'
+    entities:
+        Factures:
+            class: AppBundle\Entity\Facture
+            controller: AppBundle\Controller\FactureController
+            list:
+                actions: ['remplirFacture', 'show', '-edit']
+            form:
+                fields:
+                    - creationDate
+                    - type
+                    - client
+
+        Clients:
+            class: AppBundle\Entity\Client
+            new:
+                title: 'Rentrer un client en base de données'
+                fields:
+                    - {property: 'name', label: 'Nom'}
+                    - {property: 'societyNumber', label: 'Numero de société'}
+                    - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
+                    - {property: 'country', label: 'Pays'}
+                    - iban
+                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
+            edit:
+                title: "Mettre à jour un client"
+                fields:
+                    - {property: 'name', label: 'Nom'}
+                    - {property: 'societyNumber', label: 'Numero de société'}
+                    - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
+                    - {property: 'country', label: 'Pays'}
+                    - iban
+                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
+            list:
+                actions: ['show', '-edit']
+                fields:
+                    - {property: 'name', label: 'Nom'}
+                    - {property: 'societyNumber', label: 'Numero de société'}
+                    - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
+                    - {property: 'country', label: 'Pays'}
+                    - iban
+                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
+        Administrateurs:
+            class: AppBundle\Entity\User
+            controller: AppBundle\Controller\UserController
+            new:
+                fields:
+                    - { property: 'username', label: "Nom d'utilisateur" }
+                    - email
+                    - { property: 'plainPassword', label: 'Mot de passe', type: 'password' }
+                    - { property: 'roles',  type: 'choice', type_options: {multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' }} }
+                title: 'Créer un nouvel administrateur'
+            edit:
+                title: "Modifier un compte administrateur"
+                fields:
+                    - { property: 'username', label: "Nom d'utilisateur" }
+                    - email
+                    - { property: 'plainPassword', label: 'Mot de passe', type: 'password', type_options: {required: false} }
+                    - { property: 'roles',  type: 'choice', type_options: {multiple: true, choices: { 'Utilisateur': 'ROLE_USER', 'Administrateur': 'ROLE_ADMIN' }} }
+            list:
+                actions: ['show', '-edit']
+                fields:
+                    - { property: 'username', label: "Nom d'utilisateur" }
+                    - email
+                    - roles
+                    - {property: 'enabled', label: 'Autorisé'}
+        Prestations:
+            list:
+                actions: ['show', '-edit']
+            class: AppBundle\Entity\ContentPrestation
+
+    design:
+        brand_color: '#0929DE'
+        color_scheme: 'dark'
+        assets:
+            favicon: '..\..\doc\images\icon.png'

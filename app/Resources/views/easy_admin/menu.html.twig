@@ -1,0 +1,11 @@
+{% extends "@EasyAdmin/default/menu.html.twig" %}
+
+{% block menu_item %}
+
+    {% if ( (item.entity != 'Administrateurs' and item.entity != 'Prestations') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) ) %}
+        <br>
+        {{  parent() }}
+    {% endif %}
+
+{% endblock menu_item %}
+
