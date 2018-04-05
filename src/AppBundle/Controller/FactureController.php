@@ -20,6 +20,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Dompdf\Dompdf;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+
 
 class FactureController extends AdminController
 {
@@ -67,6 +70,30 @@ class FactureController extends AdminController
                 break;
         }
         return new Response("On arrive ici !".$id);
+    }
+
+    public function generatePDFAction(){
+        $id = $this->request->query->get('id');
+        $factRepository = $this->getDoctrine()->getRepository('AppBundle:Facture');
+        $facture = $factRepository->find($id);
+        $html = $this->renderView('pdfPresta.html.twig', array('facture' => $facture, 'prestation' => $facture->getPresta()));
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $response = new Response($dompdf->output());
+        $response->headers->add(
+            array(
+                'Content-Type' => 'application/pdf',
+                'X-Robots-Tag' => 'noindex',
+                'Content-Disposition' => $response->headers->makeDisposition(
+                    ResponseHeaderBag::DISPOSITION_INLINE,
+                    'testN1.pdf'
+                ),
+            )
+        );
+
+        return $response;
     }
 
 }

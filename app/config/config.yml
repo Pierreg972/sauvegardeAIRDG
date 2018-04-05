@@ -94,7 +94,7 @@ easy_admin:
                      - client
                      - type
                      - presta
-                actions: ['remplirFacture', 'show', '-edit']
+                actions: ['remplirFacture', 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
             form:
                 fields:
                     - type

@@ -222,4 +222,10 @@ class ContentPrestation
         $this->startDate = new \DateTime('01-01-2018');
         $this->endDate = new \DateTime('02-02-2018');
     }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return "Prestation n°".$this->getId()." avec une date de départ : ".$this->getStartDate()->format('d-m-Y');
+    }
 }
