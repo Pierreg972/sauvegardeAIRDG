@@ -110,7 +110,7 @@ easy_admin:
                     - {property: 'headOfficeAddr', label: 'Adresse complète du siège social'}
                     - {property: 'postalCode', label: 'Code postal'}
                     - {property: 'city', label: 'Ville'}
-                    - {property: 'country', label: 'Pays'}
+                    - {property: 'country', label: 'Pays', type: 'country'}
                     - {property: 'iban', label: 'IBAN (sans espaces)'}
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
             edit:

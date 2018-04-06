@@ -1,27 +1,40 @@
 {% extends 'pdfLayout.html.twig' %}
 
-
 {% block body %}
-    <p id="numeroFacture">Facture n° {{facture.id}} du {{ prestation.endDate|date("d.m.Y") }}</p>
-
     <table>
-        <tr id="firstRow">
+        <tr id="tableHeader">
             <td>Désignation</td>
             <td>PU</td>
             <td>Quantité</td>
             <td>Montant HT</td>
         </tr>
         <tr>
-            <td><strong>Prestation de service</strong><br>{{ prestation.startDate|localizeddate('long', 'none') }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td class="row"><br><strong>Prestation de service</strong><br>{{ prestation.startDate|localizeddate('none', 'none', null, null, 'MMMM y') }}</td>
+            <td class="row"></td>
+            <td class="row"></td>
+            <td class="row"></td>
         </tr>
         <tr>
-            <td><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('medium', 'none') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
-            <td class="number">{{ prestation.unitPrice }} €</td>
-            <td class="number">{{ prestation.quantity }}J</td>
-            <td class="number">{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</td>
+            <td class="rowEnd"><br><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('medium', 'none') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
+            <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.unitPrice }} €</strong></td>
+            <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.quantity }}J</strong></td>
+            <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>
+        </tr>
+        <tr>
+            <td class="invisible"></td>
+            <td id="toAlignRight" colspan="2"><strong>Total prestation HT</strong></td>
+            <td id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>
+        </tr>
+        <tr>
+            <td class="invisible"></td>
+            <td id="toAlignRight" colspan="2"><strong>TVA</strong></td>
+            <td id="toAlignRight"><strong>0 €</strong></td>
+        </tr>
+        <tr>
+            <td class="invisible"></td>
+            <td id="toAlignRight" colspan="2"><strong>Total à régler</strong></td>
+            <td id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>
         </tr>
     </table>
+    <p id="exoneration">Exonération de TVA, article 44 directive 2006/112</p>
 {% endblock %}

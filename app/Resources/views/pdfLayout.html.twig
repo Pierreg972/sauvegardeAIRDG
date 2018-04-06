@@ -7,22 +7,23 @@
     </head>
 
     <body>
-    <div class="'total">
-        <img src = '{{ absolute_url(asset('img/logo_air_dg.png')) }}' alt = "Logo AIR-DG" id="logo"/>
-        <div id="air-dg-address">
-            60, rue Jules Picard <br>
-            95660 Champagne sur Oise <br>
-            01.75.81.01.47 <br>
-            air-dg.com
+        <div class="'total">
+            <img src = '{{ absolute_url(asset('img/logo_air_dg.png')) }}' alt = "Logo AIR-DG" id="logo"/>
+            <div id="air-dg-address">
+                60, rue Jules Picard <br>
+                95660 Champagne sur Oise <br>
+                01.75.81.01.47 <br>
+                air-dg.com
+            </div>
+            <div class="slogan">L'aviation d'affaire au service de l'entreprise</div>
+            <div id="client-address">
+                <strong>{{ client.name }} </strong><br>
+                {{ client.headOfficeAddr }} <br>
+                {{ client.postalCode }}, {{ client.city }} <br>
+                {{ client.country }} <br>
+            </div>
         </div>
-        <div class="slogan">L'aviation d'affaire au service de l'entreprise</div>
-        <div id="client-address">
-            <strong>{{ client.name }} </strong><br>
-            {{ client.headOfficeAddr }} <br>
-            {{ client.postalCode }}, {{ client.city }} <br>
-            {{ client.country }} <br>
-        </div>
-    </div>
+        <p id="numeroFacture">Facture n° {{facture.id}} du {{ facture.creationDate|date("d.m.Y") }}</p>
         {% block body %}
         {% endblock %}
     </body>

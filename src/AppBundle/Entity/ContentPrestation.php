@@ -42,7 +42,7 @@ class ContentPrestation
      * @var float
      *
      * @ORM\Column(name="unit_price", type="float")
-     * @Assert\Range(min=0, minMessage="Le prix unitaire saisi est trop bas.")
+     * @Assert\GreaterThan(value="0", message="Le prix unitaire saisi est trop bas.")
      */
     private $unitPrice;
 
@@ -195,23 +195,16 @@ class ContentPrestation
      * @ORM\PreUpdate
      */
     public function entityCompletion(){
-        $diff = $this->getStartDate()->diff($this->getEndDate())->days;
+        $diff = $this->getStartDate()->diff($this->getEndDate())->days+1;
         $this->setQuantity($diff);
         $this->setTotalPrice($this->getUnitPrice()*$diff/28);
-    }
-
-    /**
-     * @ORM\PreRemove
-     */
-    public function entityDeletion(){
-
     }
 
     /**
      * @Assert\IsTrue(message="Vérifiez que les dates saisies sont valides !")
      */
     public function isDateTrue(){
-        if($this->startDate < $this->endDate){
+        if($this->startDate <= $this->endDate){
             return true;
         }
         else return false;
@@ -225,7 +218,6 @@ class ContentPrestation
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         return "Prestation n°".$this->getId();
     }
 }
