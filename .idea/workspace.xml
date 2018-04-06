@@ -14,27 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FactureController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="78" column="123" selection-start-line="78" selection-start-column="123" selection-end-line="78" selection-end-column="123" />
-              <folding>
-                <element signature="e#124#163#0#PHP" expanded="true" />
-                <element signature="e#969#988#1#PHP" expanded="true" />
-                <element signature="e#2788#2822#0#PHP" expanded="true" />
-                <element signature="e#3377#3396#1#PHP" expanded="true" />
-                <element signature="e#3480#3501#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContentPrestation.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ContentPrestation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="228" column="112" selection-start-line="228" selection-start-column="112" selection-end-line="228" selection-end-column="112" />
+            <state relative-caret-position="3329">
+              <caret line="228" column="45" selection-start-line="228" selection-start-column="45" selection-end-line="228" selection-end-column="45" />
               <folding>
                 <element signature="e#36#68#0#PHP" expanded="true" />
               </folding>
@@ -42,11 +26,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdfPresta.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pdfLayout.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pdf_generator.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/style/pdf_generator.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pdfPresta.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+            <state relative-caret-position="442">
+              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+              <folding>
+                <element signature="e#12#31#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="e#36#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="156" column="59" selection-start-line="156" selection-start-column="59" selection-end-line="156" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#109#0" />
+                <element signature="e#303#329#0" />
+                <element signature="e#331#1072#0" />
+                <element signature="e#1095#1225#0" />
+                <element signature="e#1252#1955#0" />
+                <element signature="e#1266#1489#0" />
+                <element signature="e#1805#1955#0" />
+                <element signature="e#1985#2153#0" />
+                <element signature="e#2155#2390#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -54,8 +100,8 @@
       <file leaf-file-name="Facture.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="408">
+              <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
               <folding>
                 <element signature="e#36#68#0#PHP" expanded="true" />
               </folding>
@@ -67,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createnew</find>
       <find>editac</find>
       <find>side</find>
       <find>con</find>
@@ -97,6 +142,7 @@
       <find>autoload</find>
       <find>easy</find>
       <find>show</find>
+      <find>pres</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp64\www\air-dg\vendor\easycorp\easyadmin-bundle\src\DependencyInjection</dir>
@@ -114,7 +160,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/easyadmin/menu.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/views/index.html.twig" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/config_dev.yml" />
@@ -122,15 +167,19 @@
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ContentPrestationType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/menu.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Facture.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Client.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pdf.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Client.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Facture.php" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/web/style/pdf_generator.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig" />
       </list>
     </option>
   </component>
@@ -201,7 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,158 +331,19 @@
             <path>
               <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
               <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
               <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easycorp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="easyadmin-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Component" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Component" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Validator" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="air-dg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="air-dg" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Symfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Component" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Validator" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Constraints" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="style" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -480,28 +389,28 @@
       <workItem from="1522422811329" duration="3042000" />
       <workItem from="1522739238777" duration="28332000" />
       <workItem from="1522821725277" duration="31649000" />
-      <workItem from="1522908168173" duration="30514000" />
+      <workItem from="1522908168173" duration="30744000" />
+      <workItem from="1522995148446" duration="14954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107593000" />
+    <option name="totallyTimeSpent" value="122777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1016" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49430525" visible="true" weight="0.19296375" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32963374" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32915717" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49430525" visible="true" weight="0.19083156" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32915717" />
       <window_info id="Structure" order="1" sideWeight="0.50569475" side_tool="true" weight="0.19083156" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32915717" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Thumbnails" order="8" weight="0.32915717" />
@@ -511,10 +420,11 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32915717" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49430525" visible="true" weight="0.19083156" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49430525" visible="true" weight="0.19296375" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -524,7 +434,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32915717" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32915717" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32915717" />
@@ -547,33 +457,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="e#69#111#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="36" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding>
-            <element signature="e#40#103#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -763,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="151" column="90" lean-forward="true" selection-start-line="151" selection-start-column="90" selection-end-line="151" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Validator/Constraints/NotBlank.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -795,9 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
-          <folding>
-            <element signature="e#12#45#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,40 +684,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding>
-            <element signature="e#36#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding>
-            <element signature="e#40#103#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
-          <folding>
-            <element signature="e#36#68#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -869,10 +705,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="244" column="37" selection-start-line="244" selection-start-column="37" selection-end-line="244" selection-end-column="37" />
+          <folding>
+            <element signature="e#297#364#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdf.html.twig" />
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2567">
+          <caret line="151" column="90" lean-forward="true" selection-start-line="151" selection-start-column="90" selection-end-line="151" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Resources/views/default/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="96" column="66" selection-start-line="96" selection-start-column="66" selection-end-line="96" selection-end-column="66" />
+        <state relative-caret-position="558">
+          <caret line="156" column="59" selection-start-line="156" selection-start-column="59" selection-end-line="156" selection-end-column="59" />
           <folding>
             <element signature="e#0#109#0" />
             <element signature="e#303#329#0" />
@@ -887,50 +748,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Controller/AdminController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="244" column="37" selection-start-line="244" selection-start-column="37" selection-end-line="244" selection-end-column="37" />
+        <state relative-caret-position="422">
+          <caret line="96" column="26" lean-forward="true" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
           <folding>
-            <element signature="e#297#364#0#PHP" expanded="true" />
+            <element signature="e#124#163#0#PHP" expanded="true" />
+            <element signature="e#3605#3626#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdf.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="78" column="123" selection-start-line="78" selection-start-column="123" selection-end-line="78" selection-end-column="123" />
+        <state relative-caret-position="541">
+          <caret line="35" column="86" selection-start-line="35" selection-start-column="86" selection-end-line="35" selection-end-column="86" />
           <folding>
-            <element signature="e#124#163#0#PHP" expanded="true" />
-            <element signature="e#969#988#1#PHP" expanded="true" />
-            <element signature="e#2788#2822#0#PHP" expanded="true" />
-            <element signature="e#3377#3396#1#PHP" expanded="true" />
-            <element signature="e#3480#3501#0#PHP" expanded="true" />
+            <element signature="e#40#103#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="228" column="112" selection-start-line="228" selection-start-column="112" selection-end-line="228" selection-end-column="112" />
+        <state relative-caret-position="3329">
+          <caret line="228" column="45" selection-start-line="228" selection-start-column="45" selection-end-line="228" selection-end-column="45" />
           <folding>
             <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/style/pdf_generator.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

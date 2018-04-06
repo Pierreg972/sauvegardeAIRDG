@@ -226,6 +226,6 @@ class ContentPrestation
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return "Prestation n°".$this->getId()." avec une date de départ : ".$this->getStartDate()->format('d-m-Y');
+        return "Prestation n°".$this->getId();
     }
 }

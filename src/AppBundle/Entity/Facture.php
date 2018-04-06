@@ -31,7 +31,7 @@ class Facture
     private $presta;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client", cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
      * @ORM\JoinColumn(nullable=true)
      * @Assert\Valid()
      */

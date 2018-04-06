@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Client
@@ -25,13 +26,31 @@ class Client
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(min=3, minMessage="Veuillez renter un nom plus long.")
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postal_code", type="string", length=255)
+     * @Assert\Length(min=3, minMessage="Veuillez renter un code postal plus long.")
+     */
+    private $postalCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\Length(min=2, minMessage="Veuillez renter un nom de ville plus long.")
+     */
+    private $city;
 
     /**
      * @var int
      *
      * @ORM\Column(name="society_number", type="integer")
+     * @Assert\Range(min=99999, minMessage="Veuillez saisir un numéro de société d'au minimum 6 chiffres")
      */
     private $societyNumber;
 
@@ -39,6 +58,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="head_office_addr", type="string", length=255)
+     * @Assert\Length(min=10, minMessage="Ceci est une adresse bien courte. Essayez-en une plus longue !")
      */
     private $headOfficeAddr;
 
@@ -46,6 +66,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255)
+     * @Assert\Length(min=2, minMessage="Pays trop court. Veuillez saisir au moins le code pays a 2 caractères.")
      */
     private $country;
 
@@ -53,6 +74,7 @@ class Client
      * @var string
      *
      * @ORM\Column(name="IBAN", type="string", length=255)
+     * @Assert\Length(min=16, max=16)
      */
     private $iban;
 
@@ -60,6 +82,7 @@ class Client
      * @var float
      *
      * @ORM\Column(name="tva_index", type="float")
+     * @Assert\Range(min=0.001, minMessage="Un indice à la TVA si bas est indécent !")
      */
     private $tvaIndex;
 
@@ -181,7 +204,7 @@ class Client
     /**
      * Set tvaIndex
      *
-     * @param integer $tvaIndex
+     * @param float $tvaIndex
      *
      * @return Client
      */
@@ -195,7 +218,7 @@ class Client
     /**
      * Get tvaIndex
      *
-     * @return int
+     * @return float
      */
     public function getTvaIndex()
     {
@@ -224,5 +247,53 @@ class Client
     public function getIban()
     {
         return $this->iban;
+    }
+
+    /**
+     * Set postalCode
+     *
+     * @param string $postalCode
+     *
+     * @return Client
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    /**
+     * Get postalCode
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Client
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }

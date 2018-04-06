@@ -22,6 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Dompdf\Dompdf;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Dompdf\Options;
 
 
 class FactureController extends AdminController
@@ -76,10 +77,23 @@ class FactureController extends AdminController
         $id = $this->request->query->get('id');
         $factRepository = $this->getDoctrine()->getRepository('AppBundle:Facture');
         $facture = $factRepository->find($id);
-        $html = $this->renderView('pdfPresta.html.twig', array('facture' => $facture, 'prestation' => $facture->getPresta()));
-        $dompdf = new Dompdf();
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf = new Dompdf(
+            (new Options())
+                ->set('enable_remote', true)
+        );
+
+        $dompdf->setPaper('A4', 'portrait');
+        switch($facture->getType()){
+            //Cas facture prestation
+            case 'prestation':
+                $html = $this->renderView('pdfPresta.html.twig', array('facture' => $facture, 'prestation' => $facture->getPresta(), 'client' => $facture->getClient()));
+                $dompdf->loadHtml($html);
+                break;
+            case 'service':
+                $this->get('session')->getFlashBag()->add('info', "PDF service géré.");
+                return $this->redirectToBackendHomepage();
+                break;
+        }
         $dompdf->render();
         $response = new Response($dompdf->output());
         $response->headers->add(
@@ -88,12 +102,12 @@ class FactureController extends AdminController
                 'X-Robots-Tag' => 'noindex',
                 'Content-Disposition' => $response->headers->makeDisposition(
                     ResponseHeaderBag::DISPOSITION_INLINE,
-                    'testN1.pdf'
+                    'Facture '.$facture->getId().'.pdf'
                 ),
             )
         );
-
         return $response;
+
     }
 
 }

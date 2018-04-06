@@ -1,12 +1,27 @@
-<html>
-	<head>
-		<meta charset="utf-8" />
-	</head>
+{% extends 'pdfLayout.html.twig' %}
 
-	<body>
-        <h1>{{facture}}</h1>
-		<h2>{{ prestation }}</h2>
 
-	</body>
+{% block body %}
+    <p id="numeroFacture">Facture n° {{facture.id}} du {{ prestation.endDate|date("d.m.Y") }}</p>
 
-</html>
+    <table>
+        <tr id="firstRow">
+            <td>Désignation</td>
+            <td>PU</td>
+            <td>Quantité</td>
+            <td>Montant HT</td>
+        </tr>
+        <tr>
+            <td><strong>Prestation de service</strong><br>{{ prestation.startDate|localizeddate('long', 'none') }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('medium', 'none') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
+            <td class="number">{{ prestation.unitPrice }} €</td>
+            <td class="number">{{ prestation.quantity }}J</td>
+            <td class="number">{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</td>
+        </tr>
+    </table>
+{% endblock %}

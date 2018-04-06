@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href='{{ absolute_url(asset('style/pdf_generator.css')) }}' />
+        <title>{{ facture }}</title>
+    </head>
+
+    <body>
+    <div class="'total">
+        <img src = '{{ absolute_url(asset('img/logo_air_dg.png')) }}' alt = "Logo AIR-DG" id="logo"/>
+        <div id="air-dg-address">
+            60, rue Jules Picard <br>
+            95660 Champagne sur Oise <br>
+            01.75.81.01.47 <br>
+            air-dg.com
+        </div>
+        <div class="slogan">L'aviation d'affaire au service de l'entreprise</div>
+        <div id="client-address">
+            <strong>{{ client.name }} </strong><br>
+            {{ client.headOfficeAddr }} <br>
+            {{ client.postalCode }}, {{ client.city }} <br>
+            {{ client.country }} <br>
+        </div>
+    </div>
+        {% block body %}
+        {% endblock %}
+    </body>
+
+</html>

@@ -31,6 +31,22 @@ class Client
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="postal_code", type="string", length=255)
+     * @Assert\Length(min=3, minMessage="Veuillez renter un code postal plus long.")
+     */
+    private $postalCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\Length(min=2, minMessage="Veuillez renter un nom de ville plus long.")
+     */
+    private $city;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="society_number", type="integer")
@@ -231,5 +247,53 @@ class Client
     public function getIban()
     {
         return $this->iban;
+    }
+
+    /**
+     * Set postalCode
+     *
+     * @param string $postalCode
+     *
+     * @return Client
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    /**
+     * Get postalCode
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Client
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }

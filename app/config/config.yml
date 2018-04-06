@@ -108,6 +108,8 @@ easy_admin:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
                     - {property: 'headOfficeAddr', label: 'Adresse complète du siège social'}
+                    - {property: 'postalCode', label: 'Code postal'}
+                    - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays'}
                     - {property: 'iban', label: 'IBAN (sans espaces)'}
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
@@ -119,6 +121,8 @@ easy_admin:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
                     - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
+                    - {property: 'postalCode', label: 'Code postal'}
+                    - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays'}
                     - iban
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
@@ -149,11 +153,12 @@ easy_admin:
                     - roles
                     - {property: 'enabled', label: 'Autorisé'}
         Prestations:
+            class: AppBundle\Entity\ContentPrestation
+            controller: AppBundle\Controller\UserController
             list:
                 actions: ['show', '-edit']
             show:
                 actions: ['-delete']
-            class: AppBundle\Entity\ContentPrestation
             form:
                 fields:
                     - startDate
