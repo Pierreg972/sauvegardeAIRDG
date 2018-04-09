@@ -24,8 +24,8 @@ class Flight
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $facture;
@@ -284,6 +284,11 @@ class Flight
     public function getTotalPrice()
     {
         return $this->totalPrice;
+    }
+
+    public function __toString()
+    {
+        return date('d-m-Y')." - ".$this->getDeparture()." à ".$this->getArrival();
     }
 
     /**

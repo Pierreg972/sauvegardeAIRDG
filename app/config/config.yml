@@ -89,15 +89,17 @@ easy_admin:
             list:
                 fields:
                      - id
-                     - creationDate
-                     - lastUpdate
+                     - {property: 'creationDate', label: 'Crée le'}
+                     - {property: 'lastUpdate', label: 'Mise à jour le'}
                      - client
                      - type
+                     - {property: 'paid', label: 'Payée', type: 'boolean'}
                 actions: ['remplirFacture', 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
             form:
                 fields:
                     - type
                     - client
+                    - {property: 'paid', label: 'Paid'}
         Vols:
             class: AppBundle\Entity\Flight
             form:

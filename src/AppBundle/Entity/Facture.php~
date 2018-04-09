@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Facture
@@ -23,20 +24,23 @@ class Facture
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ContentPrestation")
-     * @ORM\JoinColumn(unique=true, nullable=false)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ContentPrestation", cascade={"remove"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @Assert\Valid()
      */
     private $presta;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
+     * @Assert\Valid()
      */
     private $client;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TypeFacture")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\Valid()
      */
     private $type;
 
@@ -55,6 +59,13 @@ class Facture
      * @ORM\Column(name="last_update", type="date", nullable=true)
      */
     private $lastUpdate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="paid", type="boolean")
+     */
+    private $paid;
 
 
     /**
@@ -161,7 +172,7 @@ class Facture
     }
 
     public function __toString(){
-        return 'Facture n°' . $this->getId();
+        return 'Facture n°' . $this->getId().'-'.$this->getClient();
     }
 
     /**
@@ -179,5 +190,29 @@ class Facture
      */
     public function updateDate(){
         $this->setLastUpdate(new \Datetime());
+    }
+
+    /**
+     * Set presta
+     *
+     * @param \AppBundle\Entity\ContentPrestation $presta
+     *
+     * @return Facture
+     */
+    public function setPresta(\AppBundle\Entity\ContentPrestation $presta)
+    {
+        $this->presta = $presta;
+
+        return $this;
+    }
+
+    /**
+     * Get presta
+     *
+     * @return \AppBundle\Entity\ContentPrestation
+     */
+    public function getPresta()
+    {
+        return $this->presta;
     }
 }

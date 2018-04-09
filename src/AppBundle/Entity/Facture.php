@@ -2,8 +2,10 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Client;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Facture
@@ -29,6 +31,11 @@ class Facture
      * @Assert\Valid()
      */
     private $presta;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="facture", cascade={"persist"})
+     */
+    private $flights;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
@@ -59,6 +66,13 @@ class Facture
      * @ORM\Column(name="last_update", type="date", nullable=true)
      */
     private $lastUpdate;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="paid", type="boolean")
+     */
+    private $paid;
 
 
     /**
@@ -124,16 +138,17 @@ class Facture
     // Par défaut, la date de l'annonce est la date d'aujourd'hui
     $this->creationDate = new \Datetime();
     $this->lastUpdate = new \Datetime();
+    $this->flights = new ArrayCollection();
   }
 
     /**
      * Set client
      *
-     * @param \AppBundle\Entity\Client $client
+     * @param Client $client
      *
      * @return Facture
      */
-    public function setClient(\AppBundle\Entity\Client $client)
+    public function setClient(Client $client)
     {
         $this->client = $client;
 
@@ -143,7 +158,7 @@ class Facture
     /**
      * Get client
      *
-     * @return \AppBundle\Entity\Client
+     * @return Client
      */
     public function getClient()
     {
@@ -207,5 +222,44 @@ class Facture
     public function getPresta()
     {
         return $this->presta;
+    }
+
+    /**
+     * Set paid
+     *
+     * @param boolean $paid
+     *
+     * @return Facture
+     */
+    public function setPaid($paid)
+    {
+        $this->paid = $paid;
+
+        return $this;
+    }
+
+    /**
+     * Get paid
+     *
+     * @return boolean
+     */
+    public function getPaid()
+    {
+        return $this->paid;
+    }
+
+    public function addFlight(Flight $flight)
+    {
+        $this->flights[] = $flight;
+    }
+
+    public function removeFlight(Flight $flight)
+    {
+        $this->flights->removeElement($flight);
+    }
+
+    public function getFlights()
+    {
+        return $this->flights;
     }
 }
