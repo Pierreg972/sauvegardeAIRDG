@@ -93,12 +93,21 @@ easy_admin:
                      - lastUpdate
                      - client
                      - type
-                     - presta
                 actions: ['remplirFacture', 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
             form:
                 fields:
                     - type
                     - client
+        Vols:
+            class: AppBundle\Entity\Flight
+            form:
+                fields:
+                    - departureDate
+                    - departure
+                    - arrival
+                    - flightDuration
+                    - unitPrice
+                    - facture
 
         Clients:
             class: AppBundle\Entity\Client

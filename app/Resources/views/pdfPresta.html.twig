@@ -9,13 +9,13 @@
             <td>Montant HT</td>
         </tr>
         <tr>
-            <td class="row"><br><strong>Prestation de service</strong><br>{{ prestation.startDate|localizeddate('none', 'none', null, null, 'MMMM y') }}</td>
+            <td class="row"><br><strong>Prestation de service</strong><br>{{ prestation.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|slice(0, 1)|upper }}{{ prestation.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|slice(1,prestation.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|length) }}</td>
             <td class="row"></td>
             <td class="row"></td>
             <td class="row"></td>
         </tr>
         <tr>
-            <td class="rowEnd"><br><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('medium', 'none') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
+            <td class="rowEnd"><br><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('none', 'none', null, null, 'd') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
             <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.unitPrice }} €</strong></td>
             <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.quantity }}J</strong></td>
             <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>

@@ -56,7 +56,7 @@ class ContentPrestation
     /**
      * @var integer
      *
-     * @ORM\Column(name="quantity", type="integer", nullable=true)
+     * @ORM\Column(name="quantity", type="integer", nullable=false)
      */
     private $quantity;
 

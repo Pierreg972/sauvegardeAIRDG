@@ -17,7 +17,7 @@ class htmlRender
     private $engine;
 
     /**
-     * BillFiltering constructor.
+     * htmlRender constructor.
      * @param EngineInterface $engine
      */
     public function __construct(EngineInterface $engine)

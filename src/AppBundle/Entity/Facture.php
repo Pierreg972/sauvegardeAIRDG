@@ -165,7 +165,7 @@ class Facture
     }
 
     public function __toString(){
-        return 'Facture n°' . $this->getId();
+        return 'Facture n°' . $this->getId().'-'.$this->getClient();
     }
 
     /**

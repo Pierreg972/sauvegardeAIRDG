@@ -33,6 +33,10 @@ services:
             class: Twig_Extensions_Extension_Intl
             tags:
                 - { name: twig.extension }
+    alaczi.twig.country_extension:
+        class: alaczi\Twig\Extension\CountryExtension
+        tags:
+            - {name: twig.extension}
 
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
