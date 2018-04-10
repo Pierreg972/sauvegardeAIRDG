@@ -94,7 +94,7 @@ easy_admin:
                      - client
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
-                actions: ['remplirFacture', 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
+                actions: [{name: 'remplirFacture', label: 'Contenu facture'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
             form:
                 fields:
                     - type

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Client;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -27,8 +26,7 @@ class Facture
 
     /**
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\ContentPrestation", cascade={"remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     * @Assert\Valid()
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL", nullable=true)
      */
     private $presta;
 
@@ -199,6 +197,20 @@ class Facture
      */
     public function updateDate(){
         $this->setLastUpdate(new \Datetime());
+        switch ($this->getType()){
+            case 'prestation':
+                foreach ($this->getFlights() as $flight){
+                    $this->removeFlight($flight);
+                    var_dump($this);
+                    die;
+                }
+                break;
+            case 'temps de vol':
+                $this->setPresta(null);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -208,7 +220,7 @@ class Facture
      *
      * @return Facture
      */
-    public function setPresta(\AppBundle\Entity\ContentPrestation $presta)
+    public function setPresta(ContentPrestation $presta = null)
     {
         $this->presta = $presta;
 

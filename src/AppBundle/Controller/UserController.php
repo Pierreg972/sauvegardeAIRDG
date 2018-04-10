@@ -33,10 +33,12 @@ class UserController extends AdminController
             $this->get('session')->getFlashBag()->add('info', "Accès à l'interface administrateur refusé.");
             return $this->redirectToBackendHomepage();
         }
+        /**
         elseif($this->entity['name'] == 'Prestations' and $this->request->get('action') == 'list'){
             return $this->redirectToBackendHomepage();
 
         }
+         * */
         return $response;
     }
 
