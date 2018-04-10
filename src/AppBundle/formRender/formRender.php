@@ -33,7 +33,6 @@ class formRender{
          * @var Facture $facture
          */
         $facture = $request->attributes->get('easyadmin')['item'];
-        $em = $this->container->get('doctrine')->getManager();
 
         switch($facture->getType()){
             case 'prestation':
@@ -51,6 +50,7 @@ class formRender{
                 $response = $form;
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()) {
+                    $em = $this->container->get('doctrine')->getManager();
                     $em->persist($presta);
                     $facture->setPresta($presta);
                     $em->flush();
@@ -63,6 +63,7 @@ class formRender{
                 $response = $form;
                 $form->handleRequest($request);
                 if ($form->isSubmitted() && $form->isValid()) {
+                    $em = $this->container->get('doctrine')->getManager();
                     $em->flush();
                     $this->container->get('session')->getFlashBag()->add('info', "Vols correctement ajoutés à la facture !");
                     return null;

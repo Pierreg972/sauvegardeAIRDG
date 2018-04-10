@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\htmlRender;
+namespace AppBundle\PDFRender;
 
 use AppBundle\Entity\Facture;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Dompdf\Options;
 use Symfony\Component\Templating\EngineInterface;
 
-class htmlRender
+class PDFRender
 {
     /**
      * @var EngineInterface
@@ -31,7 +31,7 @@ class htmlRender
      * @param Facture $facture
      * @return Response $response
      */
-    public function renderHtml(Facture $facture)
+    public function renderPDF(Facture $facture)
     {
         $dompdf = new Dompdf(
             (new Options())
@@ -42,6 +42,9 @@ class htmlRender
             //Cas facture prestation
             case 'prestation':
                 $html = $this->engine->render('pdfPresta.html.twig', array('facture' => $facture, 'prestation' => $facture->getPresta(), 'client' => $facture->getClient()));
+                break;
+            case 'temps de vol':
+                $html = $this->engine->render('pdfFlights.html.twig', array('facture' => $facture, 'flights' => $facture->getFlights(), 'client' => $facture->getClient()));
                 break;
             default:
                 throw new \InvalidArgumentException();

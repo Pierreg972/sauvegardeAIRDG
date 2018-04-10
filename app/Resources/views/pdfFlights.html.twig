@@ -1,0 +1,112 @@
+{% extends 'pdfLayout.html.twig' %}
+
+{% block style %}
+    <link rel="stylesheet" href='{{ absolute_url(asset('style/pdfFlight_generator.css')) }}' />
+{% endblock %}
+
+{% block body %}
+    <table class="deplacementTable">
+        <tr>
+            <td id="beforeTable" colspan="6"><strong>Vos déplacements professionnels</strong></td>
+        </tr>
+        <tr id="tableHeader">
+            <td id="colDate">Date</td>
+            <td id="colVoyage">Voyage</td>
+            <td>Temps de vol</td>
+            <td>Quantité</td>
+            <td>PU</td>
+            <td>Montant HT</td>
+        </tr>
+        {% set totalHT = 0 %}
+        {% set totalHours = 0 %}
+        {% set totalQuantity = 0 %}
+        {% for flight in flights %}
+            <tr>
+                <td class="row" id="toCenter">{{ flight.departureDate|date('d/m') }}</td>
+                <td class="row">{{ flight.departure }} - {{ flight.arrival }}</td>
+                <td class="row" id="toAlignRight">{{ flight.flightDuration|date("H")}}h{{ flight.flightDuration|date('i')}}</td>
+                <td class="row" id="toAlignRight">{{ flight.quantity|number_format(2, ',', ' ') }}</td>
+                <td class="row" id="toAlignRight">{{ flight.unitPrice|number_format(2, ',', ' ') }} €</td>
+                <td class="row" id="toAlignRight">{{ flight.totalPrice|number_format(2, ',', ' ') }} €</td>
+            </tr>
+            {% set totalHT = totalHT + flight.totalPrice %}
+            {% set totalQuantity = totalQuantity + flight.quantity %}
+        {% endfor %}
+        <tr id="tableHeader">
+            <td class="row" colspan="2" id="toAlignLeft">Total 1 - Heures facturées</td>
+            <td class="row">TEST</td>
+            <td class="row" id="toAlignRight">{{ totalQuantity|number_format(2, ',', ' ') }}</td>
+            <td class="row"></td>
+            <td class="row" id="toAlignRight">{{ totalHT|number_format(2, ',', ' ') }}</td>
+        </tr>
+    </table><br>
+    {% set totalTax = 0 %}
+
+    <div id="up">
+        <div id="gauche">
+            <table class="sideTable">
+                <tr>
+                    <td id="beforeTable" colspan="2"><strong>Taxes d'atterrissage et parkings</strong></td>
+                </tr>
+                {% for flight in flights %}
+                    {% if (flight.taxPrice) or flight.taxName %}
+                        <tr>
+                            <td class="row">{{ flight.departureDate|date('d/m') }} - {{ flight.taxName }}</td>
+                            <td class="row" id="toAlignRight">{{ flight.taxPrice|number_format(2, ',', ' ') }} €</td>
+                        </tr>
+                        {% set totalTax = totalTax + flight.taxPrice %}
+                    {% endif %}
+                {% endfor %}
+                <tr id="tableHeader">
+                    <td class="row">Total 2 - Taxes et parkings</td>
+                    <td class="row" id="toAlignRight">{{ totalTax|number_format(2, ',', ' ') }} €</td>
+                </tr>
+            </table>
+        </div>
+        <div id="droite">
+            <table class="sideTable">
+                <tr>
+                    <td id="beforeTable" colspan="2"><strong>Mises en place pilote</strong></td>
+                </tr>
+                {% set totalFee = 0 %}
+                {% for flight in flights %}
+                {% if (flight.piloteFee) %}
+                    <tr>
+                        <td class="row">{{ flight.piloteName }}</td>
+                        <td class="row" id="toAlignRight">{{ flight.piloteFee|number_format(2, ',', ' ') }} €</td>
+                    </tr>
+                    {% set totalFee = totalFee + flight.piloteFee %}
+                {% endif %}
+                {% endfor %}
+                <tr id="tableHeader">
+                    <td class="row">Total 3 - Mises en place</td>
+                    <td class="row" id="toAlignRight">{{ totalFee|number_format(2, ',', ' ') }} €</td>
+                </tr>
+            </table>
+        </div>
+    </div><br>
+    {% set total = totalTax + totalHT + totalFee %}
+    {% set tva = 0 %}
+    <div id="down">
+        <div id="droite">
+            <table class="sideTable">
+                <tr>
+                    <td id="tableHeader" colspan="2"><strong>A régler</strong></td>
+                </tr>
+                <tr>
+                    <td class="row" id="toCenter">Total HT 1 + 2 + 3</td>
+                    <td class="row" id="toAlignRight">{{ total|number_format(2, ',', ' ') }} €</td>
+                </tr>
+                <tr>
+                    <td class="row" id="toCenter">TVA</td>
+                    <td class="row" id="toAlignRight">{{ tva|number_format(2, ',', ' ') }} €</td>
+                </tr>
+                <tr id="tableHeader">
+                    <td class="row" id="toCenter">Total à régler</td>
+                    <td class="row" id="toAlignRight">{{ total|number_format(2, ',', ' ') }} €</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="droite" class="exoneration">Exonération de TVA, article 44 directive 2006/112</div>
+{% endblock %}

@@ -107,9 +107,23 @@ easy_admin:
                     - departureDate
                     - departure
                     - arrival
+                    - taxName
+                    - taxPrice
                     - flightDuration
                     - unitPrice
+                    - piloteName
+                    - piloteFee
+            list:
+                fields:
+                    - {property : 'departureDate', label: 'Date du vol'}
+                    - {property: 'departure', label: 'Ville de départ'}
+                    - {property: 'arrival', label: "Ville d'arrivée"}
+                    - {property: 'flightDuration', label: 'Durée du vol'}
+                    - {property: 'unitPrice', label: "Prix de l'heure"}
+                    - {property: 'taxName', label: 'Taxe'}
+                    - {property: 'taxPrice', label: 'Ville de départ'}
                     - facture
+                    - piloteName
 
         Clients:
             class: AppBundle\Entity\Client

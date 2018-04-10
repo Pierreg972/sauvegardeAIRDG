@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Grpc\Timeval;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -24,7 +26,7 @@ class Flight
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
@@ -55,7 +57,7 @@ class Flight
     private $arrival;
 
     /**
-     * @var time
+     * @var Timeval
      *
      * @ORM\Column(name="flight_duration", type="time")
      */
@@ -83,6 +85,33 @@ class Flight
      */
     private $quantity;
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="pilote_fee", type="float", nullable=true)
+     */
+    private $piloteFee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pilote_name", type="string", length=255, nullable=true)
+     */
+    private $piloteName;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="tax_price", type="float", nullable=true)
+     */
+    private $taxPrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tax_name", type="string", length=255, nullable=true)
+     */
+    private $TaxName;
 
     /**
      * Get id
@@ -297,8 +326,105 @@ class Flight
      */
     public function entityCompletion(){
         $seconds = $this->getFlightDuration()->getTimestamp();
-        $this->setQuantity($seconds/3600);
-        $total = $this->getQuantity() * $this->getUnitPrice();
+        $quantity = $seconds/3600;
+        $total = $quantity * $this->getUnitPrice();
+        $this->setQuantity($quantity);
         $this->setTotalPrice($total);
+    }
+
+    /**
+     * Set taxPrice
+     *
+     * @param float $taxPrice
+     *
+     * @return Flight
+     */
+    public function setTaxPrice($taxPrice)
+    {
+        $this->taxPrice = $taxPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get taxPrice
+     *
+     * @return float
+     */
+    public function getTaxPrice()
+    {
+        return $this->taxPrice;
+    }
+
+    /**
+     * Set taxName
+     *
+     * @param string $taxName
+     *
+     * @return Flight
+     */
+    public function setTaxName($taxName)
+    {
+        $this->TaxName = $taxName;
+
+        return $this;
+    }
+
+    /**
+     * Get taxName
+     *
+     * @return string
+     */
+    public function getTaxName()
+    {
+        return $this->TaxName;
+    }
+
+    /**
+     * Set piloteFee
+     *
+     * @param float $piloteFee
+     *
+     * @return Flight
+     */
+    public function setPiloteFee($piloteFee)
+    {
+        $this->piloteFee = $piloteFee;
+
+        return $this;
+    }
+
+    /**
+     * Get piloteFee
+     *
+     * @return float
+     */
+    public function getPiloteFee()
+    {
+        return $this->piloteFee;
+    }
+
+    /**
+     * Set piloteName
+     *
+     * @param string $piloteName
+     *
+     * @return Flight
+     */
+    public function setPiloteName($piloteName)
+    {
+        $this->piloteName = $piloteName;
+
+        return $this;
+    }
+
+    /**
+     * Get piloteName
+     *
+     * @return string
+     */
+    public function getPiloteName()
+    {
+        return $this->piloteName;
     }
 }

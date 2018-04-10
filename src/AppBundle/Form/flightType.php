@@ -2,11 +2,13 @@
 
 namespace AppBundle\Form;
 
+use Doctrine\DBAL\Types\FloatType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,9 +26,12 @@ class flightType extends AbstractType
         $builder->add('departureDate',   DateType::class, array('label'=>'Date'))
             ->add('departure',TextType::class, array('label'=>'Lieu de départ'))
             ->add('arrival',     TextType::class, array('label'=>"Lieu d'arrivée"))
+            ->add('taxName',TextType::class, array('label'=>'Taxe et parking', 'required' => false))
+            ->add('taxPrice',     NumberType::class, array('label'=>"Prix de la taxe", 'required' => false))
+            ->add('piloteName',TextType::class, array('label'=>'Nom du pilote', 'required' => false))
+            ->add('piloteFee',     NumberType::class, array('label'=>"Prix du pilote", 'required' => false))
             ->add('flightDuration',TimeType::class, array('label'=>'Durée du vol'))
-            ->add('unitPrice',     IntegerType::class, array('label'=>"Prix de l'heure"))
-            ->add('save',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class)
+            ->add('unitPrice',     NumberType::class, array('label'=>"Prix de l'heure"))
         ;
     }
 
@@ -39,14 +44,5 @@ class flightType extends AbstractType
             'data_class' => 'AppBundle\Entity\Flight'
         ));
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_flight';
-    }
-
 
 }

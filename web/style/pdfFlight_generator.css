@@ -9,7 +9,6 @@
     text-align: center;
     float: left;
 }
-
 .slogan{
     font-size: large;
     color: dodgerblue;
@@ -20,60 +19,71 @@
     margin-top: 50px;
     margin-right: 30px;
 }
-
 #client-address{
     margin-top: 180px;
     margin-left: 400px;
     font-size: small;
 }
-
 #numeroFacture{
-    width: 400px;
+    width: fit-content;
     border: 1px solid black;
     margin-top: 50px;
-    padding-left: 70px;
-    padding-right: 70px;
-    margin-left: 70px;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     text-align: center;
     background-color: #E0FFFF;
 }
-
-table{
+.deplacementTable{
     border-collapse: collapse;
-    margin-left: 53px;
-    width: 593px;
+    width: fit-content;
 }
-
 td{
-    border: 1.5px solid black;
+    border: 2px solid black;
 }
 #tableHeader{
     background-color: #E0FFFF;
     font-weight: bold;
+    font-size: small;
+    text-align: center;
+    width: 100%;
 
 }
-
 #toAlignRight{
     text-align: right;
 }
-
-#exoneration{
-    margin-top: 20px;
-    margin-right: 210px;
-    font-size: xx-small;
-    text-align: right;
+#toAlignLeft{
+    text-align: left;
 }
-
+#toCenter{
+    text-align: center;
+}
+#beforeTable{
+    text-align: center;
+    background-color: midnightblue;
+    color: white;
+    font-size: small;
+}
 .row{
-    padding-bottom: 20px;
-    border-top: none;
-    border-bottom: none;
+    font-weight: bold;
+    font-size: small;
 }
-.rowEnd{
-    border-top: none;
-    padding-bottom: 20px;
+#colVoyage{
+    width: 250px;
 }
-.invisible{
-    border: none;
+#colDate{
+    width: 50px;
+}
+.sideTable{
+    border-collapse: collapse;
+    width: 100%;
+}
+#gauche{
+    float: left;
+    width: 48%;
+}
+#droite{
+    margin-left: 52%;
+}
+.exoneration{
+    margin-top: 10px;
+    font-size: xx-small;
 }

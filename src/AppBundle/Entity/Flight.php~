@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Grpc\Timeval;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -10,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="flight")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FlightRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Flight
 {
@@ -24,7 +27,7 @@ class Flight
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $facture;
@@ -54,7 +57,7 @@ class Flight
     private $arrival;
 
     /**
-     * @var time
+     * @var Timeval
      *
      * @ORM\Column(name="flight_duration", type="time")
      */
@@ -82,6 +85,35 @@ class Flight
      */
     private $quantity;
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="pilote_fee", type="float", nullable=true)
+     */
+    private $piloteFee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pilote_name", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $piloteName;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="tax_price", type="float", nullable=true)
+     */
+    private $taxPrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tax_name", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $TaxName;
 
     /**
      * Get id
@@ -230,7 +262,7 @@ class Flight
     /**
      * Get flightDuration
      *
-     * @return \DateTime
+     * @return time
      */
     public function getFlightDuration()
     {
@@ -285,14 +317,92 @@ class Flight
         return $this->totalPrice;
     }
 
+    public function __toString()
+    {
+        return date('d-m-Y')." - ".$this->getDeparture()." à ".$this->getArrival();
+    }
+
     /**
      * @ORM\PrePersist
      * @ORM\PreUpdate
      */
     public function entityCompletion(){
-        $seconds = date('s', $this->getDuration());
-        $this->setQuantity(7);
-        $total = $this->getQuantity() * $this->getUnitPrice();
-        $this->setTotalPrice(1200);
+        $seconds = $this->getFlightDuration()->getTimestamp();
+        $quantity = $seconds/3600;
+        $total = $quantity * $this->getUnitPrice();
+        $this->setQuantity($quantity);
+        $this->setTotalPrice($total);
+    }
+
+    /**
+     * Set taxPrice
+     *
+     * @param float $taxPrice
+     *
+     * @return Flight
+     */
+    public function setTaxPrice($taxPrice)
+    {
+        $this->taxPrice = $taxPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get taxPrice
+     *
+     * @return float
+     */
+    public function getTaxPrice()
+    {
+        return $this->taxPrice;
+    }
+
+    /**
+     * Set taxName
+     *
+     * @param string $taxName
+     *
+     * @return Flight
+     */
+    public function setTaxName($taxName)
+    {
+        $this->TaxName = $taxName;
+
+        return $this;
+    }
+
+    /**
+     * Get taxName
+     *
+     * @return string
+     */
+    public function getTaxName()
+    {
+        return $this->TaxName;
+    }
+
+    /**
+     * Set piloteFee
+     *
+     * @param float $piloteFee
+     *
+     * @return Flight
+     */
+    public function setPiloteFee($piloteFee)
+    {
+        $this->piloteFee = $piloteFee;
+
+        return $this;
+    }
+
+    /**
+     * Get piloteFee
+     *
+     * @return float
+     */
+    public function getPiloteFee()
+    {
+        return $this->piloteFee;
     }
 }

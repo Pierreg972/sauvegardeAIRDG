@@ -1,5 +1,9 @@
 {% extends 'pdfLayout.html.twig' %}
 
+{% block style %}
+    <link rel="stylesheet" href='{{ absolute_url(asset('style/pdfPresta_generator.css')) }}' />
+{% endblock %}
+
 {% block body %}
     <table>
         <tr id="tableHeader">
@@ -18,12 +22,12 @@
             <td class="rowEnd"><br><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('none', 'none', null, null, 'd') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
             <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.unitPrice }} €</strong></td>
             <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.quantity }}J</strong></td>
-            <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>
+            <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
         <tr>
             <td class="invisible"></td>
             <td id="toAlignRight" colspan="2"><strong>Total prestation HT</strong></td>
-            <td id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>
+            <td id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
         <tr>
             <td class="invisible"></td>
@@ -33,7 +37,7 @@
         <tr>
             <td class="invisible"></td>
             <td id="toAlignRight" colspan="2"><strong>Total à régler</strong></td>
-            <td id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, '.', ' ') }} €</strong></td>
+            <td id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
     </table>
     <p id="exoneration">Exonération de TVA, article 44 directive 2006/112</p>

@@ -13,27 +13,27 @@ use AppBundle\Entity\ContentPrestation;
 use AppBundle\Entity\Facture;
 use AppBundle\Form\ContentPrestationType;
 use AppBundle\formRender\formRender;
-use AppBundle\htmlRender\htmlRender;
+use AppBundle\PDFRender\PDFRender;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
 
 class FactureController extends AdminController
 {
     /**
-     * @var htmlRender
+     * @var PDFRender
      */
-    private $htmlRender;
+    private $PDFRender;
     private $formRender;
 
     /**
      * FactureController constructor.
-     * @param htmlRender $htmlRender
+     * @param PDFRender $PDFRender
      * @param formRender $formRender
      */
-    public function __construct(htmlRender $htmlRender, formRender $formRender)
+    public function __construct(PDFRender $PDFRender, formRender $formRender)
     {
 
-        $this->htmlRender = $htmlRender;
+        $this->PDFRender = $PDFRender;
         $this->formRender = $formRender;
     }
 
@@ -49,7 +49,7 @@ class FactureController extends AdminController
     public function generatePDFAction(){
         /** @var Facture $facture */
         $facture = $this->request->attributes->get('easyadmin')['item'];
-        $response = $this->htmlRender->renderHtml($facture);
+        $response = $this->PDFRender->renderPDF($facture);
         return $response;
 
     }
