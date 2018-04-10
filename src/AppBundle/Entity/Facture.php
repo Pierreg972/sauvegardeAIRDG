@@ -33,7 +33,8 @@ class Facture
     private $presta;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="facture", cascade={"all"})
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="facture", cascade={"all"}, orphanRemoval=true)
      */
     private $flights;
 
@@ -257,6 +258,7 @@ class Facture
     public function removeFlight(Flight $flight)
     {
         $this->flights->removeElement($flight);
+        $flight->setFacture(null);
     }
 
     public function getFlights()

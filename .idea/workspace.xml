@@ -29,13 +29,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formRender.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="formRender.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/formRender/formRender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+            <state relative-caret-position="575">
+              <caret line="65" column="74" selection-start-line="65" selection-start-column="74" selection-end-line="65" selection-end-column="74" />
               <folding>
                 <element signature="e#40#69#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Facture.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="260" column="34" selection-start-line="260" selection-start-column="34" selection-end-line="260" selection-end-column="34" />
+              <folding>
+                <element signature="e#36#64#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,7 +167,6 @@
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/formRender/formRender.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Facture.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/collectionFlightType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig" />
@@ -168,6 +179,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/htmlRender/htmlRender.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/PDFRender/PDFRender.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Facture.php" />
       </list>
     </option>
   </component>
@@ -398,12 +410,12 @@
       <workItem from="1523028935892" duration="121000" />
       <workItem from="1523253943459" duration="33567000" />
       <workItem from="1523340702605" duration="24640000" />
-      <workItem from="1523368711926" duration="3272000" />
+      <workItem from="1523368711926" duration="4441000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198810000" />
+    <option name="totallyTimeSpent" value="199979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1016" extended-state="6" />
@@ -677,16 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="258" column="47" selection-start-line="258" selection-start-column="47" selection-end-line="258" selection-end-column="47" />
-          <folding>
-            <element signature="e#36#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/style/pdf_generator.css" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/ContentPrestationType.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -781,16 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/collectionFlightType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="e#34#94#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -801,12 +793,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/collectionFlightType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="e#34#94#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/formRender/formRender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+        <state relative-caret-position="575">
+          <caret line="65" column="74" selection-start-line="65" selection-start-column="74" selection-end-line="65" selection-end-column="74" />
           <folding>
             <element signature="e#40#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Facture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="260" column="34" selection-start-line="260" selection-start-column="34" selection-end-line="260" selection-end-column="34" />
+          <folding>
+            <element signature="e#36#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
