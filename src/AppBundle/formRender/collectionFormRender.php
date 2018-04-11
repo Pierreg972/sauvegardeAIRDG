@@ -4,12 +4,13 @@ namespace AppBundle\formRender;
 
 use AppBundle\Entity\Facture;
 use AppBundle\Entity\ContentPrestation;
+use AppBundle\Entity\TypeFacture;
 use AppBundle\Form\collectionFlightType;
 use AppBundle\Form\facturePrestaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
-class formRender{
+class collectionFormRender{
 
     /**
      * @var Container
@@ -17,7 +18,7 @@ class formRender{
     private $container;
 
     /**
-     * formRender constructor.
+     * collectionFormRender constructor.
      * @param Container $container
      */
     public function __construct(Container $container)
@@ -25,41 +26,31 @@ class formRender{
         $this->container = $container;
     }
 
-
     public function renderForm(Request $request)
     {
         /**
          * @var Facture $facture
          */
-        $facture = $request->attributes->get('easyadmin')['item'];
+            $facture = $request->attributes->get('easyadmin')['item'];
 
         switch($facture->getType()){
-            case 'prestation':
+            case TypeFacture::PRESTA:
                 $form = $this->container->get('form.factory')->create(facturePrestaType::class, $facture);
-                $response = $form;
-                $form->handleRequest($request);
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $em = $this->container->get('doctrine')->getManager();
-                    $em->flush();
-                    $this->container->get('session')->getFlashBag()->add('info', "Prestation correctement ajoutée à la facture !");
-                    return null;
-                }
                 break;
-            case 'temps de vol':
+            case TypeFacture::VOL:
                 $form = $this->container->get('form.factory')->create(collectionFlightType::class, $facture);
-                $response = $form;
-                $form->handleRequest($request);
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $em = $this->container->get('doctrine')->getManager();
-                    $em->flush();
-                    $this->container->get('session')->getFlashBag()->add('info', "Vols correctement ajoutés à la facture !");
-                    return null;
-                }
                 break;
             default:
                 $this->container->get('session')->getFlashBag()->add('info', "Bouton indisponible pour le moment.");
-                $response = null;
+                $form = null;
                 break;
+        }
+        $response = $form;
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->container->get('doctrine')->getManager();
+            $em->flush();
+            return null;
         }
         return $response;
     }

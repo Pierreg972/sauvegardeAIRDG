@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends AdminController
@@ -31,14 +30,9 @@ class UserController extends AdminController
         $response = parent::indexAction($request);
         if ($this->entity['name'] == 'Administrateurs' and !$this->isGranted('ROLE_ADMIN')) {
             $this->get('session')->getFlashBag()->add('info', "Accès à l'interface administrateur refusé.");
-            return $this->redirectToBackendHomepage();
+            throw $this->createAccessDeniedException();
         }
-        /**
-        elseif($this->entity['name'] == 'Prestations' and $this->request->get('action') == 'list'){
-            return $this->redirectToBackendHomepage();
 
-        }
-         * */
         return $response;
     }
 

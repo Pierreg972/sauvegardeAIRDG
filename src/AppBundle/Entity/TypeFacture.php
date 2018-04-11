@@ -12,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TypeFacture
 {
+    const PRESTA = 'prestation';
+    const VOL = 'temps de vol';
     /**
      * @var int
      *

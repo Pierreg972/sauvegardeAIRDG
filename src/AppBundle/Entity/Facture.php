@@ -28,6 +28,7 @@ class Facture
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ContentPrestation", mappedBy="facture", cascade={"all"}, orphanRemoval=true)
      * @Assert\Valid()
+     * @ORM\OrderBy({"startDate"="ASC"})
      */
     private $prestas;
 
@@ -200,10 +201,10 @@ class Facture
     public function typeChanging()
     {
         switch ($this->getType()) {
-            case 'prestation':
+            case TypeFacture::PRESTA:
                 $this->getFlights()->clear();
                 break;
-            case 'temps de vol':
+            case TypeFacture::VOL:
                 $this->getPrestas()->clear();
                 break;
             default:

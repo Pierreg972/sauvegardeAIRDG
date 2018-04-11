@@ -2,12 +2,12 @@
 
 {% block menu_item %}
 
-{# {% if ( (item.entity != 'Administrateurs' and item.entity != 'Prestations') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) ) %} #}
-       {# {% if (item.entity != 'Administrateurs' and item.entity != 'Vols') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) %} #}
+ {% if ( (item.entity != 'Administrateurs' and item.entity != 'Prestations') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) ) %}
+        {% if (item.entity != 'Administrateurs' and item.entity != 'Vols') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) %}
         <br>
         {{  parent() }}
-       {# {% endif %} #}
-  {#  {% endif %} #}
+        {% endif %}
+    {% endif %}
 
 {% endblock menu_item %}
 

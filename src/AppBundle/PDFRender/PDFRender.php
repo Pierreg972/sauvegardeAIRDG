@@ -3,6 +3,7 @@
 namespace AppBundle\PDFRender;
 
 use AppBundle\Entity\Facture;
+use AppBundle\Entity\TypeFacture;
 use Symfony\Component\HttpFoundation\Response;
 use Dompdf\Dompdf;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
@@ -40,10 +41,10 @@ class PDFRender
         $dompdf->setPaper('A4', 'portrait');
         switch($facture->getType()){
             //Cas facture prestation
-            case 'prestation':
+            case TypeFacture::PRESTA:
                 $html = $this->engine->render('pdfPresta.html.twig', array('facture' => $facture, 'prestas' => $facture->getPrestas(), 'client' => $facture->getClient()));
                 break;
-            case 'temps de vol':
+            case TypeFacture::VOL:
                 $html = $this->engine->render('pdfFlights.html.twig', array('facture' => $facture, 'flights' => $facture->getFlights(), 'client' => $facture->getClient()));
                 break;
             default:

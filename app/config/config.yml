@@ -100,30 +100,6 @@ easy_admin:
                     - type
                     - client
                     - {property: 'paid', label: 'Paid'}
-        Vols:
-            class: AppBundle\Entity\Flight
-            form:
-                fields:
-                    - departureDate
-                    - departure
-                    - arrival
-                    - taxName
-                    - taxPrice
-                    - flightDuration
-                    - unitPrice
-                    - piloteName
-                    - piloteFee
-            list:
-                fields:
-                    - {property : 'departureDate', label: 'Date du vol'}
-                    - {property: 'departure', label: 'Ville de départ'}
-                    - {property: 'arrival', label: "Ville d'arrivée"}
-                    - {property: 'flightDuration', label: 'Durée du vol'}
-                    - {property: 'unitPrice', label: "Prix de l'heure"}
-                    - {property: 'taxName', label: 'Taxe'}
-                    - {property: 'taxPrice', label: 'Ville de départ'}
-                    - facture
-                    - piloteName
 
         Clients:
             class: AppBundle\Entity\Client
@@ -153,6 +129,7 @@ easy_admin:
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
             show:
                 actions: ['-delete']
+
         Administrateurs:
             class: AppBundle\Entity\User
             controller: AppBundle\Controller\UserController
@@ -177,13 +154,37 @@ easy_admin:
                     - email
                     - roles
                     - {property: 'enabled', label: 'Autorisé'}
+                    
+        Vols:
+            class: AppBundle\Entity\Flight
+            disabled_actions: ['list']
+            form:
+                fields:
+                    - departureDate
+                    - departure
+                    - arrival
+                    - taxName
+                    - taxPrice
+                    - flightDuration
+                    - unitPrice
+                    - piloteName
+                    - piloteFee
+            list:
+                fields:
+                    - {property : 'departureDate', label: 'Date du vol'}
+                    - {property: 'departure', label: 'Ville de départ'}
+                    - {property: 'arrival', label: "Ville d'arrivée"}
+                    - {property: 'flightDuration', label: 'Durée du vol'}
+                    - {property: 'unitPrice', label: "Prix de l'heure"}
+                    - {property: 'taxName', label: 'Taxe'}
+                    - {property: 'taxPrice', label: 'Ville de départ'}
+                    - facture
+                    - piloteName
+
         Prestations:
             class: AppBundle\Entity\ContentPrestation
             controller: AppBundle\Controller\UserController
-            list:
-                actions: ['show', '-edit']
-            show:
-                actions: ['-delete']
+            disabled_actions: ['list']
             form:
                 fields:
                     - startDate

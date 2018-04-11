@@ -12,7 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\ContentPrestation;
 use AppBundle\Entity\Facture;
 use AppBundle\Form\ContentPrestationType;
-use AppBundle\formRender\formRender;
+use AppBundle\formRender\collectionFormRender;
 use AppBundle\PDFRender\PDFRender;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
@@ -28,9 +28,9 @@ class FactureController extends AdminController
     /**
      * FactureController constructor.
      * @param PDFRender $PDFRender
-     * @param formRender $formRender
+     * @param collectionFormRender $formRender
      */
-    public function __construct(PDFRender $PDFRender, formRender $formRender)
+    public function __construct(PDFRender $PDFRender, collectionFormRender $formRender)
     {
 
         $this->PDFRender = $PDFRender;
@@ -43,7 +43,7 @@ class FactureController extends AdminController
             $response = $this->render('@EasyAdmin/default/new.html.twig', array('form'=> $form->createView(),));
             return $response;
         }
-        return parent::redirectToBackendHomepage();
+        return parent::redirectToReferrer();
     }
 
     public function generatePDFAction(){

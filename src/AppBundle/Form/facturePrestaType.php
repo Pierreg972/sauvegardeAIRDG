@@ -13,7 +13,6 @@ class facturePrestaType extends \Symfony\Component\Form\AbstractType
                 'allow_delete' => true,
                 'by_reference' => false
             ))
-            ->add('save',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
-
+            ->add('save',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
     }
 }
