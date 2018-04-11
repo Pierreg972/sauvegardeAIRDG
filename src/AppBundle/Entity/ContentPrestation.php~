@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
 /**
  * ContentPrestation
@@ -26,14 +27,14 @@ class ContentPrestation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="start_date", type="date", nullable=true)
+     * @ORM\Column(name="start_date", type="date", nullable=false)
      */
     private $startDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end_date", type="date", nullable=true)
+     * @ORM\Column(name="end_date", type="date", nullable=false)
      */
     private $endDate;
 
@@ -41,6 +42,7 @@ class ContentPrestation
      * @var float
      *
      * @ORM\Column(name="unit_price", type="float")
+     * @Assert\GreaterThan(value="0", message="Le prix unitaire saisi est trop bas.")
      */
     private $unitPrice;
 
@@ -54,9 +56,16 @@ class ContentPrestation
     /**
      * @var integer
      *
-     * @ORM\Column(name="quantity", type="integer", nullable=true)
+     * @ORM\Column(name="quantity", type="integer", nullable=false)
      */
     private $quantity;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture", inversedBy="prestas")
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\Valid()
+     */
+    private $facture;
 
 
     /**
@@ -189,13 +198,44 @@ class ContentPrestation
     }
 
     /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function entityCompletion(){
+        $diff = $this->getStartDate()->diff($this->getEndDate())->days+1;
+        $this->setQuantity($diff);
+        $this->setTotalPrice($this->getUnitPrice()*$diff/28);
+    }
+
+    /**
+     * @Assert\IsTrue(message="Vérifiez que la date de début est antérieur a la date de fin.")
+     */
+    public function isDateTrue(){
+        if($this->startDate <= $this->endDate){
+            return true;
+        }
+        else return false;
+    }
+
+    public function __construct()
+    {
+        $this->startDate = new \DateTime('01-01-2018');
+        $this->endDate = new \DateTime('02-02-2018');
+    }
+
+    public function __toString()
+    {
+        return "Prestation n°".$this->getId();
+    }
+
+    /**
      * Set facture
      *
      * @param \AppBundle\Entity\Facture $facture
      *
      * @return ContentPrestation
      */
-    public function setFacture(\AppBundle\Entity\Facture $facture)
+    public function setFacture(Facture $facture = null)
     {
         $this->facture = $facture;
 
@@ -210,15 +250,5 @@ class ContentPrestation
     public function getFacture()
     {
         return $this->facture;
-    }
-
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function entityCompletion(){
-        $diff = $this->getStartDate()->diff($this->getEndDate())->days;
-        $this->setQuantity($diff);
-        $this->setTotalPrice($this->getUnitPrice()*$diff/28);
     }
 }

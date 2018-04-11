@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\Client;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -26,11 +25,10 @@ class Facture
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\ContentPrestation", cascade={"remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
-     * @Assert\Valid()
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ContentPrestation", mappedBy="facture", cascade={"all"}, orphanRemoval=true)
      */
-    private $presta;
+    private $prestas;
 
     /**
      * @var ArrayCollection
@@ -53,7 +51,6 @@ class Facture
     private $type;
 
 
-
     /**
      * @var \DateTime
      *
@@ -74,7 +71,6 @@ class Facture
      * @ORM\Column(name="paid", type="boolean")
      */
     private $paid;
-
 
     /**
      * Get id
@@ -135,12 +131,13 @@ class Facture
     }
 
     public function __construct()
-  {
-    // Par défaut, la date de l'annonce est la date d'aujourd'hui
-    $this->creationDate = new \Datetime();
-    $this->lastUpdate = new \Datetime();
-    $this->flights = new ArrayCollection();
-  }
+    {
+        // Par défaut, la date de l'annonce est la date d'aujourd'hui
+        $this->creationDate = new \Datetime();
+        $this->lastUpdate = new \Datetime();
+        $this->flights = new ArrayCollection();
+        $this->prestas = new ArrayCollection();
+    }
 
     /**
      * Set client
@@ -173,15 +170,16 @@ class Facture
      *
      * @return Facture
      */
-    public function setType(\AppBundle\Entity\TypeFacture $type)
+    public function setType(TypeFacture $type)
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function __toString(){
-        return 'Facture n°' . $this->getId().'-'.$this->getClient();
+    public function __toString()
+    {
+        return 'Facture n°' . $this->getId() . '-' . $this->getClient();
     }
 
     /**
@@ -195,34 +193,28 @@ class Facture
     }
 
     /**
+     * @ORM\PreFlush()
+     */
+    public function typeChanging()
+    {
+        switch ($this->getType()) {
+            case 'prestation':
+                $this->getFlights()->clear();
+                break;
+            case 'temps de vol':
+                $this->getPrestas()->clear();
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
      * @ORM\PreUpdate
      */
-    public function updateDate(){
+    public function updateDate()
+    {
         $this->setLastUpdate(new \Datetime());
-    }
-
-    /**
-     * Set presta
-     *
-     * @param \AppBundle\Entity\ContentPrestation $presta
-     *
-     * @return Facture
-     */
-    public function setPresta(\AppBundle\Entity\ContentPrestation $presta)
-    {
-        $this->presta = $presta;
-
-        return $this;
-    }
-
-    /**
-     * Get presta
-     *
-     * @return \AppBundle\Entity\ContentPrestation
-     */
-    public function getPresta()
-    {
-        return $this->presta;
     }
 
     /**
@@ -261,8 +253,25 @@ class Facture
         $flight->setFacture(null);
     }
 
+    public function addPresta(ContentPrestation $presta)
+    {
+        $this->prestas[] = $presta;
+        $presta->setFacture($this);
+    }
+
+    public function removePresta(ContentPrestation $presta)
+    {
+        $this->prestas->removeElement($presta);
+        $presta->setFacture(null);
+    }
+
     public function getFlights()
     {
         return $this->flights;
+    }
+
+    public function getPrestas()
+    {
+        return $this->prestas;
     }
 }

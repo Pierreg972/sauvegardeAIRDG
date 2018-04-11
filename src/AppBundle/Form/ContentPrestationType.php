@@ -3,9 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,10 +16,9 @@ class ContentPrestationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('unitPrice',   IntegerType::class, array('label'=>'Prix unitaire'))
+        $builder->add('unitPrice',   NumberType::class, array('label'=>'Prix unitaire'))
             ->add('startDate',      DateType::class, array('label'=>'Date de départ'))
             ->add('endDate',     DateType::class, array('label'=>'Date de fin'))
-            ->add('Enregistrer',      SubmitType::class)
         ;
     }
     
@@ -32,14 +30,6 @@ class ContentPrestationType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\ContentPrestation'
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_contentprestation';
     }
 
 

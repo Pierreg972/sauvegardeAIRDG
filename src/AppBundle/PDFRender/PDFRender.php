@@ -41,7 +41,7 @@ class PDFRender
         switch($facture->getType()){
             //Cas facture prestation
             case 'prestation':
-                $html = $this->engine->render('pdfPresta.html.twig', array('facture' => $facture, 'prestation' => $facture->getPresta(), 'client' => $facture->getClient()));
+                $html = $this->engine->render('pdfPresta.html.twig', array('facture' => $facture, 'prestas' => $facture->getPrestas(), 'client' => $facture->getClient()));
                 break;
             case 'temps de vol':
                 $html = $this->engine->render('pdfFlights.html.twig', array('facture' => $facture, 'flights' => $facture->getFlights(), 'client' => $facture->getClient()));

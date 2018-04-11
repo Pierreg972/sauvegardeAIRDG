@@ -26,7 +26,7 @@ class Flight
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture", inversedBy="flights")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
@@ -202,7 +202,7 @@ class Flight
      *
      * @return Flight
      */
-    public function setFacture(\AppBundle\Entity\Facture $facture = null)
+    public function setFacture(Facture $facture = null)
     {
         $this->facture = $facture;
 
@@ -317,16 +317,17 @@ class Flight
 
     public function __toString()
     {
-        return date('d-m-Y')." - ".$this->getDeparture()." à ".$this->getArrival();
+        return date('d-m-Y') . " - " . $this->getDeparture() . " à " . $this->getArrival();
     }
 
     /**
      * @ORM\PrePersist
      * @ORM\PreUpdate
      */
-    public function entityCompletion(){
+    public function entityCompletion()
+    {
         $seconds = $this->getFlightDuration()->getTimestamp();
-        $quantity = $seconds/3600;
+        $quantity = $seconds / 3600;
         $total = $quantity * $this->getUnitPrice();
         $this->setQuantity($quantity);
         $this->setTotalPrice($total);

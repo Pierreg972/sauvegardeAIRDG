@@ -60,6 +60,13 @@ class ContentPrestation
      */
     private $quantity;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Facture", inversedBy="prestas")
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\Valid()
+     */
+    private $facture;
+
 
     /**
      * Get id
@@ -201,7 +208,7 @@ class ContentPrestation
     }
 
     /**
-     * @Assert\IsTrue(message="Vérifiez que les dates saisies sont valides !")
+     * @Assert\IsTrue(message="Vérifiez que la date de début est antérieur a la date de fin.")
      */
     public function isDateTrue(){
         if($this->startDate <= $this->endDate){
@@ -219,5 +226,29 @@ class ContentPrestation
     public function __toString()
     {
         return "Prestation n°".$this->getId();
+    }
+
+    /**
+     * Set facture
+     *
+     * @param \AppBundle\Entity\Facture $facture
+     *
+     * @return ContentPrestation
+     */
+    public function setFacture(Facture $facture = null)
+    {
+        $this->facture = $facture;
+
+        return $this;
+    }
+
+    /**
+     * Get facture
+     *
+     * @return \AppBundle\Entity\Facture
+     */
+    public function getFacture()
+    {
+        return $this->facture;
     }
 }
