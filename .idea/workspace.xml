@@ -20,8 +20,8 @@
       <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="137" column="70" selection-start-line="137" selection-start-column="70" selection-end-line="137" selection-end-column="70" />
+            <state relative-caret-position="269">
+              <caret line="126" column="75" selection-start-line="126" selection-start-column="75" selection-end-line="126" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -35,44 +35,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TypeFacture.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TypeFacture.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="itemType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/itemType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="8" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Item.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Item.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3091">
-              <caret line="182" selection-start-line="182" selection-end-line="182" />
+            <state relative-caret-position="306">
+              <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
               <folding>
-                <element signature="e#36#68#0#PHP" expanded="true" />
+                <element signature="e#34#74#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdfPresta.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig">
+      <file leaf-file-name="Client.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-              <folding>
-                <element signature="e#12#31#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -104,23 +83,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/easy_admin/menu.html.twig">
+      <file leaf-file-name="pdfFlights.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfFlights.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="131" selection-start-line="4" selection-start-column="131" selection-end-line="4" selection-end-column="131" />
+            <state relative-caret-position="616">
+              <caret line="111" column="68" selection-start-line="111" selection-start-column="68" selection-end-line="111" selection-end-column="68" />
               <folding>
-                <element signature="e#12#45#0#Twig" expanded="true" />
+                <element signature="e#12#31#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdfFlights.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfFlights.html.twig">
+      <file leaf-file-name="pdfMaintenance.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfMaintenance.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            <state relative-caret-position="609">
+              <caret line="77" column="78" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="78" />
+              <folding>
+                <element signature="e#12#31#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pdfPresta.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
               <folding>
                 <element signature="e#12#31#0#Twig" expanded="true" />
               </folding>
@@ -132,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bill</find>
       <find>tot</find>
       <find>render</find>
       <find>doctrine</find>
@@ -162,6 +152,7 @@
       <find>menu</find>
       <find>array</find>
       <find>br</find>
+      <find>set</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp64\www\air-dg\vendor\easycorp\easyadmin-bundle\src\DependencyInjection</dir>
@@ -187,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/htmlRender/BillFiltering.php" />
         <option value="$PROJECT_DIR$/web/style/pdf_generator.css" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig" />
         <option value="$PROJECT_DIR$/web/style/pdfPresta_generator.css" />
         <option value="$PROJECT_DIR$/web/style/pdfFlight_generator.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/htmlRender/htmlRender.php" />
@@ -204,7 +194,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/new.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/collectionFlightType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FactureController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Form/itemType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/maintenanceItemType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/ItemRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/maintenanceItemRepository.php" />
@@ -215,12 +204,14 @@
         <option value="$PROJECT_DIR$/src/AppBundle/PDFRender/PDFRender.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/maintenanceItem.php" />
         <option value="$PROJECT_DIR$/web/style/pdfMaintenance_generator.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pdfMaintenance.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TypeFacture.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/menu.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/itemType.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pdfMaintenance.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pdfFlights.html.twig" />
       </list>
     </option>
@@ -570,18 +561,18 @@
       <workItem from="1523432949864" duration="1159000" />
       <workItem from="1523434241431" duration="89000" />
       <workItem from="1523434343649" duration="25517000" />
-      <workItem from="1523513043004" duration="24486000" />
+      <workItem from="1523513043004" duration="29156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261016000" />
+    <option name="totallyTimeSpent" value="265686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1016" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4931663" visible="true" weight="0.21215352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4931663" visible="true" weight="0.21215352" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32963374" />
@@ -590,7 +581,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50683373" side_tool="true" weight="0.19722815" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32915717" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32915717" />
       <window_info id="Favorites" order="2" sideWeight="0.5045558" side_tool="true" weight="0.19296375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Thumbnails" order="8" weight="0.32915717" />
@@ -617,7 +608,7 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32915717" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32915717" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32915717" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32963374" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
@@ -637,13 +628,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Configuration/ConfigPassInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="33" column="126" selection-start-line="33" selection-start-column="126" selection-end-line="33" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/src/Configuration/ConfigManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
@@ -669,13 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -913,16 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfMaintenance.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
-          <folding>
-            <element signature="e#12#31#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/style/pdfMaintenance_generator.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -948,13 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/itemType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Item.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3091">
@@ -969,6 +929,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="206" column="69" selection-start-line="206" selection-start-column="69" selection-end-line="206" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/itemType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+          <folding>
+            <element signature="e#34#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/easy_admin/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="131" selection-start-line="4" selection-start-column="131" selection-end-line="4" selection-end-column="131" />
+          <folding>
+            <element signature="e#12#45#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -988,34 +975,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ContentPrestation.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfLayout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="206" column="69" selection-start-line="206" selection-start-column="69" selection-end-line="206" selection-end-column="69" />
+        <state relative-caret-position="374">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="137" column="70" selection-start-line="137" selection-start-column="70" selection-end-line="137" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/easy_admin/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="131" selection-start-line="4" selection-start-column="131" selection-end-line="4" selection-end-column="131" />
-          <folding>
-            <element signature="e#12#45#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="269">
+          <caret line="126" column="75" selection-start-line="126" selection-start-column="75" selection-end-line="126" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfPresta.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        <state relative-caret-position="313">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+          <folding>
+            <element signature="e#12#31#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfMaintenance.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="77" column="78" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="78" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>
@@ -1024,8 +1018,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pdfFlights.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        <state relative-caret-position="616">
+          <caret line="111" column="68" selection-start-line="111" selection-start-column="68" selection-end-line="111" selection-end-column="68" />
           <folding>
             <element signature="e#12#31#0#Twig" expanded="true" />
           </folding>

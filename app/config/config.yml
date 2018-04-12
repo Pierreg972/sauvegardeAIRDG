@@ -124,7 +124,7 @@ easy_admin:
                     - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}}
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
-                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
+                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)'}
             edit:
                 title: "Mettre à jour un client"
                 fields:
@@ -135,7 +135,7 @@ easy_admin:
                     - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays', type: 'country'}
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
-                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
+                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)'}
             list:
                 actions: ['show', '-edit', '-delete']
                 fields:

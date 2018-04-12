@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block body %}
+    {% set totalHT = 0 %}
+    {% set totalHours = 0 %}
+    {% set totalQuantity = 0 %}
+    {% set totalTax = 0 %}
+    {% set totalFee = 0 %}
+    {% set TVA = 0 %}
     <table class="deplacementTable">
         <tr>
             <td id="beforeTable" colspan="6"><strong>Vos déplacements professionnels</strong></td>
@@ -17,9 +23,6 @@
             <td>PU</td>
             <td>Montant HT</td>
         </tr>
-        {% set totalHT = 0 %}
-        {% set totalHours = 0 %}
-        {% set totalQuantity = 0 %}
         {% for flight in flights %}
             <tr>
                 <td class="row" id="toCenter">{{ flight.departureDate|date('d/m') }}</td>
@@ -43,7 +46,6 @@
             <td class="row" id="toAlignRight">{{ totalHT|number_format(2, ',', ' ') }}</td>
         </tr>
     </table><br>
-    {% set totalTax = 0 %}
 
     <div id="up">
         <div id="gauche">
@@ -71,7 +73,6 @@
                 <tr>
                     <td id="beforeTable" colspan="2"><strong>Mises en place pilote</strong></td>
                 </tr>
-                {% set totalFee = 0 %}
                 {% for flight in flights %}
                 {% if (flight.piloteFee) %}
                     <tr>
@@ -89,7 +90,6 @@
         </div>
     </div><br>
     {% set total = totalTax + totalHT + totalFee %}
-    {% set tva = 0 %}
     <div id="down">
         <div id="droite">
             <table class="sideTable">
@@ -102,14 +102,19 @@
                 </tr>
                 <tr>
                     <td class="row" id="toCenter">TVA</td>
-                    <td class="row" id="toAlignRight">{{ tva|number_format(2, ',', ' ') }} €</td>
+                    {% if client.country == 'FR' %}
+                        {% set TVA = client.tvaIndex/100*total %}
+                    {% endif %}
+                    <td class="row" id="toAlignRight">{{ TVA|number_format(2, ',', ' ') }} €</td>
                 </tr>
                 <tr id="tableHeader">
                     <td class="row" id="toCenter">Total à régler</td>
-                    <td class="row" id="toAlignRight">{{ total|number_format(2, ',', ' ') }} €</td>
+                    <td class="row" id="toAlignRight">{{ (total+TVA)|number_format(2, ',', ' ') }} €</td>
                 </tr>
             </table>
         </div>
     </div>
-    <div id="droite" class="exoneration">Exonération de TVA, article 44 directive 2006/112</div>
+    {% if client.country != 'FR' %}
+        <div id="droite" class="exoneration">Exonération de TVA, article 44 directive 2006/112</div>
+    {% endif %}
 {% endblock %}

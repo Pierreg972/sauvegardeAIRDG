@@ -22,6 +22,7 @@
             <td class="row"></td>
         </tr>
         {% set total = 0 %}
+        {% set TVA = 0 %}
         {% for prestation in prestas %}
             {% if loop.last %}
                 <tr>
@@ -48,13 +49,18 @@
         <tr>
             <td class="invisible"></td>
             <td id="toAlignRight" colspan="2"><strong>TVA</strong></td>
-            <td id="toAlignRight"><strong>0 €</strong></td>
+            {% if client.country == 'FR' %}
+                {% set TVA = client.tvaIndex/100*total %}
+            {% endif %}
+            <td id="toAlignRight"><strong>{{ TVA|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
         <tr>
             <td class="invisible"></td>
             <td id="toAlignRight" colspan="2"><strong>Total à régler</strong></td>
-            <td id="toAlignRight"><strong>{{ total|number_format(2, ',', ' ') }} €</strong></td>
+            <td id="toAlignRight"><strong>{{ (total+TVA)|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
     </table>
-    <p id="exoneration">Exonération de TVA, article 44 directive 2006/112</p>
+    {% if client.country != 'FR' %}
+        <p id="exoneration">Exonération de TVA, article 44 directive 2006/112</p>
+    {% endif %}
 {% endblock %}
