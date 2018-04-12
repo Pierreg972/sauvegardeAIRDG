@@ -204,7 +204,10 @@ class ContentPrestation
     public function entityCompletion(){
         $diff = $this->getStartDate()->diff($this->getEndDate())->days+1;
         $this->setQuantity($diff);
-        $this->setTotalPrice($this->getUnitPrice()*$diff/28);
+        $mois = date('m', date_timestamp_get($this->getStartDate()));
+        $nbJour = date('t',$mois);
+        $this->setTotalPrice($this->getUnitPrice()*$diff/$nbJour);
+
     }
 
     /**

@@ -27,14 +27,14 @@
                 <tr>
                     <td class="rowEnd"><br><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('none', 'none', null, null, 'd') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
                     <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.unitPrice }} €</strong></td>
-                    <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.quantity }}J</strong></td>
+                    <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.quantity }} jr</strong></td>
                     <td class="rowEnd" id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
                 </tr>
             {% else %}
                 <tr>
                     <td class="row"><br><strong>Prestation de pilotage AIR DG</strong><br>Du {{ prestation.startDate|localizeddate('none', 'none', null, null, 'd') }} au {{ prestation.endDate|localizeddate('medium', 'none') }}</td>
                     <td class="row" id="toAlignRight"><strong>{{ prestation.unitPrice }} €</strong></td>
-                    <td class="row" id="toAlignRight"><strong>{{ prestation.quantity }}J</strong></td>
+                    <td class="row" id="toAlignRight"><strong>{{ prestation.quantity }} jr</strong></td>
                     <td class="row" id="toAlignRight"><strong>{{ prestation.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
                 </tr>
             {% endif %}

@@ -88,13 +88,24 @@ easy_admin:
             controller: AppBundle\Controller\FactureController
             list:
                 fields:
-                     - id
+                     - {property: 'id', label: 'Numéro'}
                      - {property: 'creationDate', label: 'Crée le'}
                      - {property: 'lastUpdate', label: 'Mise à jour le'}
                      - client
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
                 actions: [{name: 'remplirFacture', label: 'Contenu facture'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
+            show:
+                fields:
+                     - {property: 'id', label: 'Numéro'}
+                     - type
+                     - {property: 'creationDate', label: 'Crée le'}
+                     - {property: 'lastUpdate', label: 'Mise à jour le'}
+                     - client
+                     - {property: 'paid', label: 'Payée', type: 'boolean'}
+                     - prestas
+                     - maintenanceItems
+                     - flights
             form:
                 fields:
                     - type
@@ -115,7 +126,7 @@ easy_admin:
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
             edit:
-                title: 'Rentrer un client en base de données'
+                title: "Mettre à jour un client"
                 fields:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
@@ -125,8 +136,6 @@ easy_admin:
                     - {property: 'country', label: 'Pays', type: 'country'}
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
                     - {property: 'tvaIndex', label: 'Indice à la TVA'}
-            edit:
-                title: "Mettre à jour un client"
             list:
                 actions: ['show', '-edit', '-delete']
                 fields:
@@ -206,7 +215,7 @@ easy_admin:
                     - endDate
                     - unitPrice
 
-        maintenanceItems:
+        Maintenance:
             class: AppBundle\Entity\maintenanceItem
             controller: AppBundle\Controller\UserController
 

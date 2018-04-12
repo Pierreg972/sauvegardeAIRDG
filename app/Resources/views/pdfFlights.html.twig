@@ -31,10 +31,13 @@
             </tr>
             {% set totalHT = totalHT + flight.totalPrice %}
             {% set totalQuantity = totalQuantity + flight.quantity %}
+            {% set totalHours = totalHours + flight.flightDuration|date('U') %}
         {% endfor %}
         <tr id="tableHeader">
             <td class="row" colspan="2" id="toAlignLeft">Total 1 - Heures facturées</td>
-            <td class="row">TEST</td>
+            <td class="row" id="toAlignRight">{% if totalHours|date('d') > 1 %} {{ (totalHours|date('d') - 1)*24 + totalHours|date("h") }}h{{ totalHours|date('i') }}
+                {% else %} {{ totalHours|date("h")}}h{{ totalHours|date('i') }}m{% endif %}
+            </td>
             <td class="row" id="toAlignRight">{{ totalQuantity|number_format(2, ',', ' ') }}</td>
             <td class="row"></td>
             <td class="row" id="toAlignRight">{{ totalHT|number_format(2, ',', ' ') }}</td>
