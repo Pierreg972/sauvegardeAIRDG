@@ -13,7 +13,10 @@
             <td>Montant HT</td>
         </tr>
         <tr>
-            <td class="row"><br><strong>Prestation de service</strong><br>{{ prestas|last.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|slice(0, 1)|upper }}{{ prestas|last.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|slice(1,prestas|last.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|length) }}</td>
+            <td class="row"><br><strong>Prestation de service</strong>
+                {% if prestas|last.startDate is defined %}
+                    <br>{{ prestas|last.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|slice(0, 1)|upper }}{{ prestas|last.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|slice(1,prestas|last.startDate|localizeddate('none', 'none', null, null, 'MMMM y')|length) }}
+                {% endif %}</td>
             <td class="row"></td>
             <td class="row"></td>
             <td class="row"></td>

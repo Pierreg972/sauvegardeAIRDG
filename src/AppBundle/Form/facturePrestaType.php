@@ -11,8 +11,9 @@ class facturePrestaType extends \Symfony\Component\Form\AbstractType
                 'entry_type'   => \AppBundle\Form\ContentPrestationType::class,
                 'allow_add'    => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
+                'entry_options' => ['label'=>false],
             ))
-            ->add('save',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
+            ->add('enregistrer',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
     }
 }

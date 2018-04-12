@@ -23,22 +23,22 @@ class FactureController extends AdminController
      * @var PDFRender
      */
     private $PDFRender;
-    private $formRender;
+    private $collectionFormRender;
 
     /**
      * FactureController constructor.
      * @param PDFRender $PDFRender
-     * @param collectionFormRender $formRender
+     * @param collectionFormRender $collectionFormRender
      */
-    public function __construct(PDFRender $PDFRender, collectionFormRender $formRender)
+    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender)
     {
 
         $this->PDFRender = $PDFRender;
-        $this->formRender = $formRender;
+        $this->collectionFormRender = $collectionFormRender;
     }
 
     public function remplirFactureAction(){
-        $form = $this->formRender->renderForm($this->request);
+        $form = $this->collectionFormRender->renderForm($this->request);
         if($form != null){
             $response = $this->render('@EasyAdmin/default/new.html.twig', array('form'=> $form->createView(),));
             return $response;

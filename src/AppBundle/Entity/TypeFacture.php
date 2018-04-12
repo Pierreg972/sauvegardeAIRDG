@@ -14,6 +14,7 @@ class TypeFacture
 {
     const PRESTA = 'prestation';
     const VOL = 'temps de vol';
+    const MAINTENANCE = 'maintenance';
     /**
      * @var int
      *

@@ -40,6 +40,19 @@ class Facture
     private $flights;
 
     /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\maintenanceItem", mappedBy="facture", cascade={"all"}, orphanRemoval=true)
+     * @Assert\Valid()
+     */
+    private $maintenanceItems;
+
+    /**
+     * @var string
+     * @ORM\Column(name="engine_name", type="string", length=255, nullable=true)
+     */
+    private $engineName;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
      * @ORM\JoinColumn(nullable=true)
      * @Assert\Valid()
@@ -133,15 +146,6 @@ class Facture
         return $this->lastUpdate;
     }
 
-    public function __construct()
-    {
-        // Par défaut, la date de l'annonce est la date d'aujourd'hui
-        $this->creationDate = new \Datetime();
-        $this->lastUpdate = new \Datetime();
-        $this->flights = new ArrayCollection();
-        $this->prestas = new ArrayCollection();
-    }
-
     /**
      * Set client
      *
@@ -180,11 +184,6 @@ class Facture
         return $this;
     }
 
-    public function __toString()
-    {
-        return 'Facture n°' . $this->getId() . '-' . $this->getClient();
-    }
-
     /**
      * Get type
      *
@@ -193,31 +192,6 @@ class Facture
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * @ORM\PreFlush()
-     */
-    public function typeChanging()
-    {
-        switch ($this->getType()) {
-            case TypeFacture::PRESTA:
-                $this->getFlights()->clear();
-                break;
-            case TypeFacture::VOL:
-                $this->getPrestas()->clear();
-                break;
-            default:
-                break;
-        }
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function updateDate()
-    {
-        $this->setLastUpdate(new \Datetime());
     }
 
     /**
@@ -244,6 +218,49 @@ class Facture
         return $this->paid;
     }
 
+    /**
+     * Set engineName
+     *
+     * @param string $engineName
+     *
+     * @return Facture
+     */
+    public function setEngineName($engineName)
+    {
+        $this->engineName = $engineName;
+
+        return $this;
+    }
+
+    /**
+     * Get engineName
+     *
+     * @return string
+     */
+    public function getEngineName()
+    {
+        return $this->engineName;
+    }
+
+    public function addMaintenanceItem(maintenanceItem $maintenanceItem)
+    {
+        $this->maintenanceItems[] = $maintenanceItem;
+        $maintenanceItem->setFacture($this);
+
+        return $this;
+    }
+
+    public function removeMaintenanceItem(maintenanceItem $maintenanceItem)
+    {
+        $this->maintenanceItems->removeElement($maintenanceItem);
+        $maintenanceItem->setFacture(null);
+    }
+
+    public function getMaintenanceItems()
+    {
+        return $this->maintenanceItems;
+    }
+
     public function addFlight(Flight $flight)
     {
         $this->flights[] = $flight;
@@ -254,6 +271,11 @@ class Facture
     {
         $this->flights->removeElement($flight);
         $flight->setFacture(null);
+    }
+
+    public function getFlights()
+    {
+        return $this->flights;
     }
 
     public function addPresta(ContentPrestation $presta)
@@ -268,13 +290,56 @@ class Facture
         $presta->setFacture(null);
     }
 
-    public function getFlights()
-    {
-        return $this->flights;
-    }
-
     public function getPrestas()
     {
         return $this->prestas;
+    }
+
+    public function __construct()
+    {
+        // Par défaut, la date de l'annonce est la date d'aujourd'hui
+        $this->creationDate = new \Datetime();
+        $this->lastUpdate = new \Datetime();
+        $this->flights = new ArrayCollection();
+        $this->prestas = new ArrayCollection();
+        $this->maintenanceItems = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return 'Facture n°' . $this->getId() . '-' . $this->getClient();
+    }
+
+    /**
+     * @ORM\PreFlush()
+     */
+    public function typeChanging()
+    {
+        switch ($this->getType()) {
+            case TypeFacture::PRESTA:
+                $this->getFlights()->clear();
+                $this->getMaintenanceItems()->clear();
+                $this->setEngineName(null);
+                break;
+            case TypeFacture::VOL:
+                $this->getPrestas()->clear();
+                $this->getMaintenanceItems()->clear();
+                $this->setEngineName(null);
+                break;
+            case TypeFacture::MAINTENANCE:
+                $this->getFlights()->clear();
+                $this->getPrestas()->clear();
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setLastUpdate(new \Datetime());
     }
 }

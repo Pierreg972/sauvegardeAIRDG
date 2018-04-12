@@ -1,0 +1,83 @@
+{% extends 'pdfLayout.html.twig' %}
+
+{% block style %}
+    <link rel="stylesheet" href='{{ absolute_url(asset('style/pdfMaintenance_generator.css')) }}' />
+{% endblock %}
+
+{% block body %}
+    <table>
+        <tr id="tableHeader">
+            <td>Désignation</td>
+            <td>PU</td>
+            <td>Quantité</td>
+            <td>Montant HT</td>
+        </tr>
+        <tr>
+            <td id="toSmall" class="row"><br><br><strong>{{ facture.engineName }}</strong></td>
+            <td class="row"></td>
+            <td class="row"></td>
+            <td class="row"></td>
+        </tr>
+        {% set total = 0 %}
+        {% for maintenanceItem in maintenanceItems %}
+            {% if loop.last %}
+                <tr>
+                    <td id="toSmall" class="row"><br><strong>{{ maintenanceItem.name }}</strong></td>
+                    <td class="row"></td>
+                    <td class="row"></td>
+                    <td class="row"></td>
+                </tr>
+                {% for item in maintenanceItem.items %}
+                    {% if loop.last %}
+                        <tr>
+                            <td id="toItalic" class="rowEnd">{{ item.name }}</td>
+                            <td class="rowEnd" id="toAlignRight"><strong>{{ item.unitPrice|number_format(2, ',', ' ') }} €</strong></td>
+                            <td class="rowEnd" id="toAlignRight"><strong>{{ item.quantity|number_format(2, ',', ' ') }}</strong></td>
+                            <td class="rowEnd" id="toAlignRight"><strong>{{ item.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td id="toItalic" class="row">{{ item.name }}</td>
+                            <td class="row" id="toAlignRight"><strong>{{ item.unitPrice|number_format(2, ',', ' ') }} €</strong></td>
+                            <td class="row" id="toAlignRight"><strong>{{ item.quantity|number_format(2, ',', ' ') }}</strong></td>
+                            <td class="row" id="toAlignRight"><strong>{{ item.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
+                        </tr>
+                    {% endif %}
+                    {% set total = total + item.totalPrice %}
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td id="toSmall" class="row"><br><strong>{{ maintenanceItem.name }}</strong></td>
+                    <td class="row"></td>
+                    <td class="row"></td>
+                    <td class="row"></td>
+                </tr>
+                {% for item in maintenanceItem.items %}
+                    <tr>
+                        <td id="toItalic" class="row">{{ item.name }}</td>
+                        <td class="row" id="toAlignRight"><strong>{{ item.unitPrice|number_format(2, ',', ' ') }} €</strong></td>
+                        <td class="row" id="toAlignRight"><strong>{{ item.quantity|number_format(2, ',', ' ') }}</strong></td>
+                        <td class="row" id="toAlignRight"><strong>{{ item.totalPrice|number_format(2, ',', ' ') }} €</strong></td>
+                    </tr>
+                    {% set total = total + item.totalPrice %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td class="invisible"></td>
+            <td id="toAlignRight" colspan="2"><strong>Total prestation HT</strong></td>
+            <td id="toAlignRight"><strong>{{ total|number_format(2, ',', ' ') }} €</strong></td>
+        </tr>
+        <tr>
+            <td class="invisible"></td>
+            <td id="toAlignRight" colspan="2"><strong>TVA</strong></td>
+            <td id="toAlignRight"><strong>0 €</strong></td>
+        </tr>
+        <tr>
+            <td class="invisible"></td>
+            <td id="toAlignRight" colspan="2"><strong>Total à régler</strong></td>
+            <td id="toAlignRight"><strong>{{ total|number_format(2, ',', ' ') }} €</strong></td>
+        </tr>
+    </table>
+    <p id="exoneration">Exonération de TVA, article 44 directive 2006/112</p>
+{% endblock %}

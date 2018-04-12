@@ -6,6 +6,7 @@ use AppBundle\Entity\Facture;
 use AppBundle\Entity\ContentPrestation;
 use AppBundle\Entity\TypeFacture;
 use AppBundle\Form\collectionFlightType;
+use AppBundle\Form\collectionMaintenanceItemType;
 use AppBundle\Form\facturePrestaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
@@ -39,6 +40,9 @@ class collectionFormRender{
                 break;
             case TypeFacture::VOL:
                 $form = $this->container->get('form.factory')->create(collectionFlightType::class, $facture);
+                break;
+            case TypeFacture::MAINTENANCE:
+                $form = $this->container->get('form.factory')->create(collectionMaintenanceItemType::class, $facture);
                 break;
             default:
                 $this->container->get('session')->getFlashBag()->add('info', "Bouton indisponible pour le moment.");

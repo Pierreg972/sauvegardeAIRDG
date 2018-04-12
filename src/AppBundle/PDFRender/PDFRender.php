@@ -47,6 +47,9 @@ class PDFRender
             case TypeFacture::VOL:
                 $html = $this->engine->render('pdfFlights.html.twig', array('facture' => $facture, 'flights' => $facture->getFlights(), 'client' => $facture->getClient()));
                 break;
+            case TypeFacture::MAINTENANCE:
+                $html = $this->engine->render('pdfMaintenance.html.twig', array('facture' => $facture, 'maintenanceItems' => $facture->getMaintenanceItems(), 'client' => $facture->getClient()));
+                break;
             default:
                 throw new \InvalidArgumentException();
         }
