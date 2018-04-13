@@ -101,9 +101,11 @@
                     <td class="row" id="toAlignRight">{{ total|number_format(2, ',', ' ') }} €</td>
                 </tr>
                 <tr>
-                    <td class="row" id="toCenter">TVA</td>
                     {% if client.country == 'FR' %}
+                        <td class="row" id="toCenter">TVA ({{ client.tvaIndex }}%)</td>
                         {% set TVA = client.tvaIndex/100*total %}
+                    {% else %}
+                        <td class="row" id="toCenter">TVA</td>
                     {% endif %}
                     <td class="row" id="toAlignRight">{{ TVA|number_format(2, ',', ' ') }} €</td>
                 </tr>

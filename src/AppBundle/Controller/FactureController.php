@@ -9,10 +9,9 @@
 namespace AppBundle\Controller;
 
 
-use AppBundle\Entity\ContentPrestation;
 use AppBundle\Entity\Facture;
-use AppBundle\Form\ContentPrestationType;
 use AppBundle\formRender\collectionFormRender;
+use AppBundle\viewRender\viewRender;
 use AppBundle\PDFRender\PDFRender;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
@@ -24,23 +23,27 @@ class FactureController extends AdminController
      */
     private $PDFRender;
     private $collectionFormRender;
+    private $viewRender;
 
     /**
      * FactureController constructor.
      * @param PDFRender $PDFRender
      * @param collectionFormRender $collectionFormRender
+     * @param viewRender $viewRender
      */
-    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender)
+    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender, viewRender $viewRender)
     {
 
         $this->PDFRender = $PDFRender;
         $this->collectionFormRender = $collectionFormRender;
+        $this->viewRender = $viewRender;
     }
 
     public function remplirFactureAction(){
         $form = $this->collectionFormRender->renderForm($this->request);
+        $view = $this->viewRender->renderView($this->request);
         if($form != null){
-            $response = $this->render('@EasyAdmin/default/new.html.twig', array('form'=> $form->createView(),));
+            $response = $this->render($view, array('form'=> $form->createView(),));
             return $response;
         }
         return parent::redirectToReferrer();

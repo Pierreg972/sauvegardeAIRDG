@@ -71,7 +71,12 @@
         </tr>
         <tr>
             <td class="invisible"></td>
-            <td id="toAlignRight" colspan="2"><strong>TVA</strong></td>
+            {% if client.country == 'FR' %}
+                <td id="toAlignRight" colspan="2"><strong>TVA ({{ client.tvaIndex }}%)</strong></td>
+                {% set TVA = client.tvaIndex/100*total %}
+            {% else %}
+                <td id="toAlignRight" colspan="2"><strong>TVA</strong></td>
+            {% endif %}
             {% if client.country == 'FR' %}
                 {% set TVA = client.tvaIndex/100*total %}
             {% endif %}

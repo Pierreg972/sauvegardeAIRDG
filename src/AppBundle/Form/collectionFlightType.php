@@ -12,6 +12,7 @@ class collectionFlightType extends \Symfony\Component\Form\AbstractType
                 'allow_add'    => true,
                 'allow_delete' => true,
                 'by_reference' => false,
+                'label'        => 'Vols',
                 'entry_options'=> ['label'=>false],
             ))
             ->add('enregistrer',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);

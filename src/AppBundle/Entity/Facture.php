@@ -54,7 +54,7 @@ class Facture
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $client;

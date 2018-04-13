@@ -2,7 +2,7 @@
 
 {% block menu_item %}
 
-{% if ( (item.entity != 'Administrateurs' and item.entity != 'Prestations' and item.entity != 'Vols' and item.entity != 'Maintenanc') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) ) %}
+{% if ( (item.entity != 'Administrateurs' and item.entity != 'Prestations' and item.entity != 'Vols' and item.entity != 'Maintenance') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) ) %}
     <br>
     {{  parent() }}
 {% endif %}

@@ -94,7 +94,7 @@ easy_admin:
                      - client
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
-                actions: [{name: 'remplirFacture', label: 'Contenu facture'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF'}]
+                actions: [{name: 'remplirFacture', label: 'Detailler'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF', target: __blank}]
             show:
                 fields:
                      - {property: 'id', label: 'Numéro'}
@@ -209,6 +209,7 @@ easy_admin:
         Prestations:
             class: AppBundle\Entity\ContentPrestation
             controller: AppBundle\Controller\UserController
+            disabled_actions: [list]
             form:
                 fields:
                     - startDate
@@ -218,6 +219,7 @@ easy_admin:
         Maintenance:
             class: AppBundle\Entity\maintenanceItem
             controller: AppBundle\Controller\UserController
+            disabled_actions: [list]
 
     design:
         brand_color: '#0929DE'
