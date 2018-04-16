@@ -14,6 +14,7 @@ class maintenanceItemType extends \Symfony\Component\Form\AbstractType
             ->add('items', \Symfony\Component\Form\Extension\Core\Type\CollectionType::class, array(
                 'entry_type'   => itemType::class,
                 'allow_add'    => true,
+                'label'        => 'Ajouter des produits a cette catégorie',
                 'allow_delete' => true,
                 'by_reference' => false,
                 'entry_options'=> ['label'=>false],

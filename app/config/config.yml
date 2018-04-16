@@ -94,7 +94,7 @@ easy_admin:
                      - client
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
-                actions: [{name: 'remplirFacture', label: 'Detailler'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF', target: __blank}]
+                actions: [{name: 'remplirFacture', label: 'Detailler contenu'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF', target: __blank}]
             show:
                 fields:
                      - {property: 'id', label: 'Numéro'}
@@ -103,14 +103,16 @@ easy_admin:
                      - {property: 'lastUpdate', label: 'Mise à jour le'}
                      - client
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
-                     - prestas
-                     - maintenanceItems
+                     - {property: 'prestas', label: 'Prestations'}
+                     - {property: 'maintenanceItems', label: 'Catégories de maintenance'}
                      - flights
             form:
                 fields:
                     - type
                     - client
                     - {property: 'paid', label: 'Paid'}
+            edit:
+                fields: [{property: 'paid', label: 'Payée (cocher pour affirmer)'}]
 
         Clients:
             class: AppBundle\Entity\Client
@@ -220,6 +222,9 @@ easy_admin:
             class: AppBundle\Entity\maintenanceItem
             controller: AppBundle\Controller\UserController
             disabled_actions: [list]
+
+        Extrait_Compte:
+            class: AppBundle\Entity\accountStatement
 
     design:
         brand_color: '#0929DE'

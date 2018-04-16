@@ -17,8 +17,8 @@ class ContentPrestationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('unitPrice',   NumberType::class, array('label'=>'Prix unitaire'))
-            ->add('startDate',      DateType::class, array('label'=>'Date de départ'))
-            ->add('endDate',     DateType::class, array('label'=>'Date de fin'))
+            ->add('startDate',      DateType::class, array('label'=>'Date de départ', 'widget' => 'single_text'))
+            ->add('endDate',     DateType::class, array('label'=>'Date de fin', 'widget' => 'single_text'))
         ;
     }
     
@@ -32,5 +32,8 @@ class ContentPrestationType extends AbstractType
         ));
     }
 
-
+    public function getBlockPrefix()
+    {
+        return 'ContentPrestationType';
+    }
 }

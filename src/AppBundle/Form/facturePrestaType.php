@@ -2,6 +2,9 @@
 
 namespace AppBundle\Form;
 
+
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
 class facturePrestaType extends \Symfony\Component\Form\AbstractType
 {
     public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)
@@ -12,9 +15,21 @@ class facturePrestaType extends \Symfony\Component\Form\AbstractType
                 'allow_add'    => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                'label'        => 'Prestations',
+                'label'        => 'Ajouter des prestations',
                 'entry_options' => ['label'=>false],
             ))
             ->add('enregistrer',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => 'AppBundle\Entity\Facture',
+        ]);
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'facturePrestaType';
     }
 }

@@ -14,6 +14,7 @@ class collectionMaintenanceItemType extends \Symfony\Component\Form\AbstractType
                 'entry_type'   => maintenanceItemType::class,
                 'allow_add'    => true,
                 'allow_delete' => true,
+                'label'        => 'Ajouter des catégories de maintenance',
                 'by_reference' => false,
                 'entry_options'=> ['label'=>false],
             ))

@@ -13,6 +13,7 @@ use AppBundle\Entity\Facture;
 use AppBundle\formRender\collectionFormRender;
 use AppBundle\viewRender\viewRender;
 use AppBundle\PDFRender\PDFRender;
+use AppBundle\formRender\accountFormRender;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
 
@@ -24,19 +25,31 @@ class FactureController extends AdminController
     private $PDFRender;
     private $collectionFormRender;
     private $viewRender;
+    private $accountFormRender;
 
     /**
      * FactureController constructor.
      * @param PDFRender $PDFRender
      * @param collectionFormRender $collectionFormRender
      * @param viewRender $viewRender
+     * @param accountFormRender $accountFormRender
      */
-    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender, viewRender $viewRender)
+    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender, viewRender $viewRender, accountFormRender $accountFormRender)
     {
 
         $this->PDFRender = $PDFRender;
         $this->collectionFormRender = $collectionFormRender;
         $this->viewRender = $viewRender;
+        $this->accountFormRender = $accountFormRender;
+    }
+
+    public function accountStatementAction(){
+        $form = $this->accountFormRender->accountRenderForm($this->request);
+        if($form != null){
+            $response = $this->render('::accountStatement.html.twig', array('form'=> $form->createView(),));
+            return $response;
+        }
+        return parent::redirectToReferrer();
     }
 
     public function remplirFactureAction(){

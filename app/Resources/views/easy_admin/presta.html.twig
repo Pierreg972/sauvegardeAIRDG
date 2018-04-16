@@ -1,12 +1,13 @@
-{% form_theme form with easyadmin_config('design.form_theme') %}
+{% extends '@EasyAdmin/default/new.html.twig' %}
+
 
 {% set _entity_config = easyadmin_entity(app.request.query.get('entity')) %}
 {% trans_default_domain _entity_config.translation_domain %}
 {% set _trans_parameters = { '%entity_name%': _entity_config.name|trans, '%entity_label%': _entity_config.label|trans } %}
 
-{% extends '@EasyAdmin/default/new.html.twig' %}
+
 {% block content_title %}
-    <h1>Remplir les prestations liées à cette facture</h1><br>
+    <h1>Edition de prestations</h1><hr/>
 {% endblock %}
 
 {% block main %}
