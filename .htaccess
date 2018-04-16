@@ -1,0 +1,4 @@
+﻿Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /backend
+RewriteRule ^(.*) web$1
