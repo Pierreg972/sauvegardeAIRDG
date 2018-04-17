@@ -5,12 +5,14 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
 /**
  * accountStatement
  *
  * @ORM\Table(name="account_statement")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\accountStatementRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class accountStatement
 {
@@ -24,6 +26,11 @@ class accountStatement
     private $id;
 
     /**
+     * @var Container
+     */
+    private $container;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string")
@@ -33,10 +40,16 @@ class accountStatement
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Facture", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Facture")
      * @Assert\Valid()
      */
     private $factures;
+
+    /**
+     * @var Client
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     */
+    private $client;
 
     /**
      * Get id
@@ -61,5 +74,73 @@ class accountStatement
     public function getFactures()
     {
         return $this->factures;
+    }
+    /**
+     * Constructor
+     * @param Container $container
+     */
+    public function __construct(Container $container)
+    {
+        $this->factures = new ArrayCollection();
+        $this->container = $container;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return accountStatement
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \AppBundle\Entity\Client $client
+     *
+     * @return accountStatement
+     */
+    public function setClient(Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \AppBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function initializeFactures()
+    {
+        $em = $this->container->get('doctrine')->getManager();
+        $repository = $em->getRepository('AppBundle:Facture');
+        $factures = $repository->findBy(array('client'=>$this->getClient()));
+        $this->factures= $factures;
     }
 }

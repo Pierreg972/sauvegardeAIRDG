@@ -20,6 +20,7 @@ class viewRender{
     const PRESTA = ':easy_admin:presta.html.twig';
     const VOL = ':easy_admin:vol.html.twig';
     const MAINTENANCE = ':easy_admin:maintenance.html.twig';
+    const COMPTE = ':easy_admin:accountStatement.html.twig';
 
     /**
      * collectionFormRender constructor.
@@ -46,6 +47,9 @@ class viewRender{
                 break;
             case TypeFacture::MAINTENANCE:
                 $view = viewRender::MAINTENANCE;
+                break;
+            case TypeFacture::COMPTE:
+                $view = viewRender::COMPTE;
                 break;
             default:
                 $view = '@EasyAdmin/default/new.html.twig';

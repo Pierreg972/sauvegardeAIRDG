@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table(name="account_statement")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\accountStatementRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class accountStatement
 {
@@ -33,10 +34,16 @@ class accountStatement
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Facture", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Facture")
      * @Assert\Valid()
      */
     private $factures;
+
+    /**
+     * @var Client
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     */
+    private $client;
 
     /**
      * Get id
@@ -67,7 +74,12 @@ class accountStatement
      */
     public function __construct()
     {
-        $this->factures = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->factures = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 
     /**
@@ -92,5 +104,38 @@ class accountStatement
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \AppBundle\Entity\Client $client
+     *
+     * @return accountStatement
+     */
+    public function setClient(Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Get client
+     *
+     * @return \AppBundle\Entity\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function initializeFactures()
+    {
+        $factures = $this->getClient()->getFactures();
+        $this->factures= $factures;
     }
 }

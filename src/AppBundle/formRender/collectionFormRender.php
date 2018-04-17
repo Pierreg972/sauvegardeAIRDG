@@ -3,7 +3,6 @@
 namespace AppBundle\formRender;
 
 use AppBundle\Entity\Facture;
-use AppBundle\Entity\ContentPrestation;
 use AppBundle\Entity\TypeFacture;
 use AppBundle\Form\collectionFlightType;
 use AppBundle\Form\collectionMaintenanceItemType;

@@ -53,8 +53,8 @@ class Facture
     private $engineName;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client", inversedBy="factures")
+     * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
     private $client;
@@ -295,35 +295,6 @@ class Facture
         return $this->prestas;
     }
 
-    /**
-     * @ORM\PreFlush()
-     */
-    public function typeChanging()
-    {
-        switch ($this->getType()) {
-            case TypeFacture::PRESTA:
-                $this->getFlights()->clear();
-                break;
-            case TypeFacture::VOL:
-                $this->getPrestas()->clear();
-                break;
-            case TypeFacture::MAINTENANCE:
-                $this->getMaintenanceItems()->clear();
-                $this->setEngineName(null);
-                break;
-            default:
-                break;
-        }
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function updateDate()
-    {
-        $this->setLastUpdate(new \Datetime());
-    }
-
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
@@ -337,5 +308,38 @@ class Facture
     public function __toString()
     {
         return 'Facture n°' . $this->getId() . '-' . $this->getClient();
+    }
+
+    /**
+     * @ORM\PreFlush()
+     */
+    public function typeChanging()
+    {
+        switch ($this->getType()) {
+            case TypeFacture::PRESTA:
+                $this->getFlights()->clear();
+                $this->getMaintenanceItems()->clear();
+                $this->setEngineName(null);
+                break;
+            case TypeFacture::VOL:
+                $this->getPrestas()->clear();
+                $this->getMaintenanceItems()->clear();
+                $this->setEngineName(null);
+                break;
+            case TypeFacture::MAINTENANCE:
+                $this->getFlights()->clear();
+                $this->getPrestas()->clear();
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setLastUpdate(new \Datetime());
     }
 }

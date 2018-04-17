@@ -53,7 +53,7 @@ class Facture
     private $engineName;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client", inversedBy="factures")
      * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */

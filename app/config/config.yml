@@ -116,6 +116,7 @@ easy_admin:
 
         Clients:
             class: AppBundle\Entity\Client
+            controller: AppBundle\Controller\FactureController
             new:
                 title: 'Rentrer un client en base de données'
                 fields:
@@ -139,7 +140,7 @@ easy_admin:
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
                     - {property: 'tvaIndex', label: 'Indice à la TVA (en %)'}
             list:
-                actions: ['show', '-edit', '-delete']
+                actions: ['show', '-edit', '-delete', {name: 'generateAccountStatement', label: 'Extrait de compte', target: __blank}]
                 fields:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
@@ -225,9 +226,22 @@ easy_admin:
 
         Extrait_Compte:
             class: AppBundle\Entity\accountStatement
+            controller: AppBundle\Controller\FactureController
+            list:
+                actions: ['show', {name: 'generateAccountPDF', label: 'Générer PDF'}]
+            new:
+                fields:
+                    - name
+                    - client
+            edit:
+                fields:
+                    - {property: 'name', label: 'Descriptif'}
+                    - {property: 'client', label: 'Client'}
+                    - { property: 'factures', type: 'entity' }
 
     design:
         brand_color: '#0929DE'
         color_scheme: 'dark'
+        form_theme: 'vertical'
         assets:
             favicon: '..\..\doc\images\icon.png'

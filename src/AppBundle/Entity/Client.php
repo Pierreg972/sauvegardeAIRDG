@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Client
@@ -29,6 +30,13 @@ class Client
      * @Assert\NotBlank()
      */
     private $name;
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Facture", mappedBy="client", cascade={"all"}, orphanRemoval=true)
+     * @Assert\Valid()
+     */
+    private $factures;
 
     /**
      * @var string
@@ -295,5 +303,46 @@ class Client
     public function getCity()
     {
         return $this->city;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->factures = new ArrayCollection();
+    }
+
+    /**
+     * Add facture
+     *
+     * @param \AppBundle\Entity\Facture $facture
+     *
+     * @return Client
+     */
+    public function addFacture(Facture $facture)
+    {
+        $this->factures[] = $facture;
+
+        return $this;
+    }
+
+    /**
+     * Remove facture
+     *
+     * @param \AppBundle\Entity\Facture $facture
+     */
+    public function removeFacture(Facture $facture)
+    {
+        $this->factures->removeElement($facture);
+    }
+
+    /**
+     * Get factures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFactures()
+    {
+        return $this->factures;
     }
 }

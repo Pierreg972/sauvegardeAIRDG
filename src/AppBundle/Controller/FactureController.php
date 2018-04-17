@@ -10,11 +10,14 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Facture;
+use AppBundle\Form\facturePrestaType;
 use AppBundle\formRender\collectionFormRender;
 use AppBundle\viewRender\viewRender;
 use AppBundle\PDFRender\PDFRender;
-use AppBundle\formRender\accountFormRender;
+use AppBundle\accountPDFRender\accountPDFRender;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
+use AppBundle\Entity\Testou;
+use Proxies\__CG__\AppBundle\Entity\accountStatement;
 
 
 class FactureController extends AdminController
@@ -25,31 +28,29 @@ class FactureController extends AdminController
     private $PDFRender;
     private $collectionFormRender;
     private $viewRender;
-    private $accountFormRender;
+    private $accountPDFRender;
 
     /**
      * FactureController constructor.
      * @param PDFRender $PDFRender
      * @param collectionFormRender $collectionFormRender
      * @param viewRender $viewRender
-     * @param accountFormRender $accountFormRender
+     * @param accountPDFRender $accountPDFRender
      */
-    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender, viewRender $viewRender, accountFormRender $accountFormRender)
+    public function __construct(PDFRender $PDFRender, collectionFormRender $collectionFormRender, viewRender $viewRender, accountPDFRender $accountPDFRender)
     {
 
         $this->PDFRender = $PDFRender;
         $this->collectionFormRender = $collectionFormRender;
         $this->viewRender = $viewRender;
-        $this->accountFormRender = $accountFormRender;
+        $this->accountPDFRender = $accountPDFRender;
     }
 
-    public function accountStatementAction(){
-        $form = $this->accountFormRender->accountRenderForm($this->request);
-        if($form != null){
-            $response = $this->render('::accountStatement.html.twig', array('form'=> $form->createView(),));
-            return $response;
-        }
-        return parent::redirectToReferrer();
+    public function generateAccountPDFAction(){
+        /** @var accountStatement $accountStatement */
+        $accountStatement = $this->request->attributes->get('easyadmin')['item'];
+        $response = $this->accountPDFRender->renderPDF($accountStatement);
+        return $response;
     }
 
     public function remplirFactureAction(){

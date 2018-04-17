@@ -24,7 +24,7 @@
                 {{ client.country|country(app.request.locale)}} <br>
             </div>
         </div>
-        <p id="numeroFacture">Facture n° {{facture.id}} du {{ facture.creationDate|date("d.m.Y") }}</p>
+       {# <p id="numeroFacture">Facture n° {{facture.id}} du {{ facture.creationDate|date("d.m.Y") }}</p> #}
         {% block body %}
         {% endblock %}
     </body>
