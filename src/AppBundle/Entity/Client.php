@@ -90,7 +90,6 @@ class Client
      * @var float
      *
      * @ORM\Column(name="tva_index", type="float")
-     * @Assert\Range(min=0.001, minMessage="Un indice à la TVA si bas est indécent !")
      */
     private $tvaIndex;
 

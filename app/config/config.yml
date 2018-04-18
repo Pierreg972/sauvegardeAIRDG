@@ -127,7 +127,7 @@ easy_admin:
                     - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}}
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
-                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)'}
+                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)', type: 'choice', type_options: {multiple: false, choices: { Etranger: 0, France: 20 }}}
             edit:
                 title: "Mettre à jour un client"
                 fields:
@@ -138,7 +138,7 @@ easy_admin:
                     - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays', type: 'country'}
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
-                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)'}
+                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)', type: 'choice', type_options: {multiple: false, choices: { Etranger: 0, France: 20 }}}
             list:
                 actions: ['show', '-edit', '-delete']
                 fields:
@@ -185,7 +185,6 @@ easy_admin:
 
         Vols:
             class: AppBundle\Entity\Flight
-            disabled_actions: ['list']
             form:
                 fields:
                     - departureDate
@@ -212,7 +211,6 @@ easy_admin:
         Prestations:
             class: AppBundle\Entity\ContentPrestation
             controller: AppBundle\Controller\UserController
-            disabled_actions: [list]
             form:
                 fields:
                     - startDate

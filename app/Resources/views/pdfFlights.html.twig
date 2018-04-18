@@ -31,16 +31,16 @@
                 <td class="row" id="toAlignRight">{{ flight.flightDuration|date("H")}}h{{ flight.flightDuration|date('i')}}</td>
                 <td class="row" id="toAlignRight">{{ flight.quantity|number_format(2, ',', ' ') }}</td>
                 <td class="row" id="toAlignRight">{{ flight.unitPrice|number_format(2, ',', ' ') }} €</td>
-                <td class="row" id="toAlignRight">{{ flight.totalPrice|number_format(2, ',', ' ') }} €</td>
+                <td class="row" id="toAlignRight">{{ (flight.unitPrice * flight.quantity)|number_format(2, ',', ' ') }} €</td>
             </tr>
-            {% set totalHT = totalHT + flight.totalPrice %}
+            {% set totalHT = totalHT + (flight.unitPrice * flight.quantity) %}
             {% set totalQuantity = totalQuantity + flight.quantity %}
             {% set totalHours = totalHours + flight.flightDuration|date('U') %}
         {% endfor %}
         <tr id="tableHeader">
             <td class="row" colspan="2" id="toAlignLeft">Total 1 - Heures facturées</td>
-            <td class="row" id="toAlignRight">{% if totalHours|date('d') > 1 %} {{ (totalHours|date('d') - 1)*24 + totalHours|date("h") }}h{{ totalHours|date('i') }}
-                {% else %} {{ totalHours|date("h")}}h{{ totalHours|date('i') }}m{% endif %}
+            <td class="row" id="toAlignRight">{% if totalHours|date('d') > 1 %} {{ (totalHours|date('d') - 1)*24 + totalHours|date("H") }}h{{ totalHours|date('i') }}
+                {% else %} {{ totalHours|date("H")}}h{{ totalHours|date('i') }}m{% endif %}
             </td>
             <td class="row" id="toAlignRight">{{ totalQuantity|number_format(2, ',', ' ') }}</td>
             <td class="row"></td>
@@ -102,12 +102,8 @@
                     <td class="row" id="toAlignRight">{{ total|number_format(2, ',', ' ') }} €</td>
                 </tr>
                 <tr>
-                    {% if client.country == 'FR' %}
-                        <td class="row" id="toCenter">TVA ({{ client.tvaIndex }}%)</td>
-                        {% set TVA = client.tvaIndex/100*total %}
-                    {% else %}
-                        <td class="row" id="toCenter">TVA</td>
-                    {% endif %}
+                    {% set TVA = client.tvaIndex*total/100 %}
+                    <td class="row" id="toCenter">TVA ({{ client.tvaIndex }}%)</td>
                     <td class="row" id="toAlignRight">{{ TVA|number_format(2, ',', ' ') }} €</td>
                 </tr>
                 <tr id="tableHeader">

@@ -28,7 +28,7 @@ class maintenanceItem
      * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
      */
-    private $facture;
+    protected $facture;
 
     /**
      * @var string

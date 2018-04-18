@@ -60,6 +60,8 @@ class FactureController extends AdminController
             $response = $this->render($view, array('form'=> $form->createView(),));
             return $response;
         }
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
         return parent::redirectToReferrer();
     }
 

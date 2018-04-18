@@ -207,7 +207,7 @@ class ContentPrestation
         $mois = date('m', date_timestamp_get($this->getStartDate()));
         $nbJour = date('t',$mois);
         $this->setTotalPrice($this->getUnitPrice()*$diff/$nbJour);
-
+        $this->facture->setTotalPrice();
     }
 
     /**

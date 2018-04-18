@@ -27,7 +27,7 @@
     font-size: small;
 }
 
-#numeroFacture{
+#dateStatement{
     width: 400px;
     border: 1px solid black;
     margin-top: 50px;
@@ -53,6 +53,9 @@ td{
     font-weight: bold;
 
 }
+#toAlignLeft{
+    text-align: left;
+}
 
 #toAlignRight{
     text-align: right;
@@ -69,11 +72,18 @@ td{
     padding-bottom: 20px;
     border-top: none;
     border-bottom: none;
+    font-size: small;
 }
 .rowEnd{
     border-top: none;
     padding-bottom: 20px;
+    font-size: small;
 }
-.invisible{
-    border: none;
+.leftFinalRow{
+    border-right: none;
+    padding: 5px;
+}
+.rightFinalRow{
+    border-left: none;
+    padding: 5px;
 }

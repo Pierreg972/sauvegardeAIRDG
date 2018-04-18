@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <p id="numeroFacture"><strong>Solde au {{ "now"|date("d.m.Y") }}</strong></p>
+    <p id="dateStatement"><strong>Solde au {{ "now"|date("d.m.Y") }}</strong></p>
     <table>
         <tr id="tableHeader">
             <td>Désignation</td><br>
@@ -17,24 +17,27 @@
         {% for facture in factures %}
             {% if loop.last %}
                 <tr>
-                    <td class="rowEnd">{{ facture }}</td>
-                    <td class="rowEnd" id="toAlignRight"><strong>€</strong></td>
-                    <td class="rowEnd" id="toAlignRight"><strong>1</strong></td>
-                    <td class="rowEnd" id="toAlignRight"><strong>€</strong></td>
+                    <td class="rowEnd"><br>{{ facture }}</td>
+                    <td class="rowEnd" id="toAlignRight"><br><strong>{{ facture.total|number_format(2, ',', ' ') }} €</strong></td>
+                    <td class="rowEnd" id="toAlignRight"><br><strong>1</strong></td>
+                    <td class="rowEnd" id="toAlignRight"><br><strong>{{ facture.total|number_format(2, ',', ' ') }} €</strong></td>
                 </tr>
+                {% set total = total + facture.total %}
             {% else %}
                 <tr>
-                    <td class="row">{{ facture }}</td>
-                    <td class="row" id="toAlignRight"><strong>€</strong></td>
-                    <td class="row" id="toAlignRight"><strong>1</strong></td>
-                    <td class="row" id="toAlignRight"><strong>€</strong></td>
+                    <td class="row"><br>{{ facture }}</td>
+                    <td class="row" id="toAlignRight"><br><strong>{{ facture.total|number_format(2, ',', ' ') }} €</strong></td>
+                    <td class="row" id="toAlignRight"><br><strong>1</strong></td>
+                    <td class="row" id="toAlignRight"><br><strong>{{ facture.total|number_format(2, ',', ' ') }} €</strong></td>
                 </tr>
+                {% set total = total + facture.total %}
             {% endif %}
         {% endfor %}
+    </table>
+    <table>
         <tr>
-            <td class="invisible"></td>
-            <td id="toAlignRight" colspan="3"><strong>Total à régler</strong></td>
-            <td id="toAlignRight"><strong>€</strong></td>
+            <td id="toAlignLeft" class="leftFinalRow" colspan="3"><strong>Solde en votre faveur :</strong></td>
+            <td id="toAlignRight" class="rightFinalRow"><strong>{{ total|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
     </table>
 {% endblock %}

@@ -233,11 +233,6 @@ class Flight
         return $this;
     }
 
-    /**
-     * Get departureDate
-     *
-     * @return \DateTime
-     */
     public function getDepartureDate()
     {
         return $this->departureDate;
@@ -257,11 +252,6 @@ class Flight
         return $this;
     }
 
-    /**
-     * Get flightDuration
-     *
-     * @return time
-     */
     public function getFlightDuration()
     {
         return $this->flightDuration;
@@ -313,24 +303,6 @@ class Flight
     public function getTotalPrice()
     {
         return $this->totalPrice;
-    }
-
-    public function __toString()
-    {
-        return date('d-m-Y') . " - " . $this->getDeparture() . " à " . $this->getArrival();
-    }
-
-    /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     */
-    public function entityCompletion()
-    {
-        $seconds = $this->getFlightDuration()->getTimestamp();
-        $quantity = $seconds / 3600;
-        $total = $quantity * $this->getUnitPrice();
-        $this->setQuantity($quantity);
-        $this->setTotalPrice($total);
     }
 
     /**
@@ -427,5 +399,24 @@ class Flight
     public function getPiloteName()
     {
         return $this->piloteName;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function entityCompletion()
+    {
+        $seconds = date_timestamp_get($this->getFlightDuration());
+        $quantity = $seconds / 3600;
+        $this->setQuantity($quantity);
+        $total = ($this->getQuantity() * $this->getUnitPrice()) + $this->getTaxPrice() + $this->getPiloteFee();
+        $this->setTotalPrice($total);
+        $this->facture->setTotalPrice();
+    }
+
+    public function __toString()
+    {
+        return date('d-m-Y') . " - " . $this->getDeparture() . " à " . $this->getArrival();
     }
 }

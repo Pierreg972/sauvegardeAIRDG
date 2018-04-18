@@ -204,5 +204,6 @@ class Item
     {
         $total = $this->getQuantity() * $this->getUnitPrice();
         $this->setTotalPrice($total);
+        $this->maintenanceItem->getFacture()->setTotalPrice();
     }
 }

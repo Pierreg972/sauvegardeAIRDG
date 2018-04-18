@@ -89,6 +89,12 @@ class Facture
     private $paid;
 
     /**
+     * @var float
+     * @ORM\Column(name="total", type="float")
+     */
+    private $total;
+
+    /**
      * Get id
      *
      * @return int
@@ -295,6 +301,63 @@ class Facture
         return $this->prestas;
     }
 
+    /**
+     * Set total
+     *
+     * @param float $total
+     *
+     * @return Facture
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    public function setTotalPrice(){
+        $tot = 0;
+            switch ($this->getType()) {
+                case TypeFacture::PRESTA:
+                    foreach ($this->prestas as $presta) {
+                        $tot = $tot + $presta->getTotalPrice();
+                    }
+                    $tot = $tot + ($tot / 100 * $this->getClient()->getTvaIndex());
+                    $this->setTotal($tot);
+                    break;
+                case TypeFacture::VOL:
+                    foreach ($this->flights as $flight) {
+                        $tot = $tot + $flight->getTotalPrice();
+                    }
+                    $tva = $this->getClient()->getTvaIndex() * $tot / 100;
+                    $tot = $tot + $tva;
+                    $this->setTotal($tot);
+                    break;
+                case TypeFacture::MAINTENANCE:
+                    foreach ($this->maintenanceItems as $maintenanceItem) {
+                        foreach ($maintenanceItem->getItems() as $item)
+                            $tot = $tot + $item->getTotalPrice();
+                    }
+                    $tva = $this->getClient()->getTvaIndex() * $tot / 100;
+                    $tot = $tot + $tva;
+                    $this->setTotal($tot);
+                    break;
+                default:
+                    $this->setTotal($tot);
+                    break;
+            }
+    }
+
+    /**
+     * Get total
+     *
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
     public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
@@ -303,6 +366,7 @@ class Facture
         $this->flights = new ArrayCollection();
         $this->prestas = new ArrayCollection();
         $this->maintenanceItems = new ArrayCollection();
+        $this->total = 0;
     }
 
     public function __toString()
@@ -333,6 +397,7 @@ class Facture
             default:
                 break;
         }
+
     }
 
     /**
@@ -342,4 +407,6 @@ class Facture
     {
         $this->setLastUpdate(new \Datetime());
     }
+
+
 }
