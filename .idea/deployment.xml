@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="OVH" uploadOnCheckin="a36cf799-c50b-470a-a58a-f65ec520d6ec">
+  <component name="PublishConfigData" serverName="OVH">
     <serverData>
       <paths name="OVH">
         <serverdata>
@@ -10,6 +10,5 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="OVH" />
   </component>
 </project>
