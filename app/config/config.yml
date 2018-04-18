@@ -94,7 +94,7 @@ easy_admin:
                      - client
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
-                actions: [{name: 'remplirFacture', label: 'Detailler contenu'}, 'show', '-edit', {name: 'generatePDF', label: 'Generer le PDF', target: __blank}]
+                actions: [{name: 'remplirFacture', label: 'Detailler contenu'}, 'edit', {name: 'generatePDF', label: 'Generer le PDF', target: __blank}]
             show:
                 fields:
                      - {property: 'id', label: 'Numéro'}
@@ -110,35 +110,31 @@ easy_admin:
                 fields:
                     - type
                     - client
-                    - {property: 'paid', label: 'Paid'}
+                    - {property: 'paid', label: 'Payée (cocher pour affirmer)'}
             edit:
                 fields: [{property: 'paid', label: 'Payée (cocher pour affirmer)'}]
 
         Clients:
             class: AppBundle\Entity\Client
             controller: AppBundle\Controller\FactureController
-            new:
+            form:
                 title: 'Rentrer un client en base de données'
                 fields:
-                    - {property: 'name', label: 'Nom'}
-                    - {property: 'societyNumber', label: 'Numero de société'}
+                    - {property: 'name', label: 'Nom de la société'}
                     - {property: 'headOfficeAddr', label: 'Adresse complète du siège social'}
                     - {property: 'postalCode', label: 'Code postal'}
                     - {property: 'city', label: 'Ville'}
                     - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}}
-                    - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
+                    - {property: 'vatNumber', label: 'Numéro de TVA'}
+                    - {property: 'societyNumber', label: 'Numero de société'}
+                    - {property: 'iban', label: 'IBAN', type_options: {required: false} }
+                    - {property: 'bic', label: 'BIC', type_options: {required: false} }
+                    - {property: 'email', label: 'Email'}
+                    - {property: 'phoneNumber', label: 'Numéro de téléphone'}
+                    - {property: 'contactPerson', label: 'Personne à contacter'}
                     - {property: 'tvaIndex', label: 'Indice à la TVA (en %)', type: 'choice', type_options: {multiple: false, choices: { Etranger: 0, France: 20 }}}
             edit:
                 title: "Mettre à jour un client"
-                fields:
-                    - {property: 'name', label: 'Nom'}
-                    - {property: 'societyNumber', label: 'Numero de société'}
-                    - {property: 'headOfficeAddr', label: 'Adresse complète du siège social'}
-                    - {property: 'postalCode', label: 'Code postal'}
-                    - {property: 'city', label: 'Ville'}
-                    - {property: 'country', label: 'Pays', type: 'country'}
-                    - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
-                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)', type: 'choice', type_options: {multiple: false, choices: { Etranger: 0, France: 20 }}}
             list:
                 actions: ['show', '-edit', '-delete']
                 fields:

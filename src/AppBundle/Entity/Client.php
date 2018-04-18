@@ -32,11 +32,12 @@ class Client
     private $name;
 
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Facture", mappedBy="client", cascade={"all"}, orphanRemoval=true)
-     * @Assert\Valid()
+     * @var string
+     *
+     * @ORM\Column(name="head_office_addr", type="string", length=255)
+     * @Assert\NotBlank()
      */
-    private $factures;
+    private $headOfficeAddr;
 
     /**
      * @var string
@@ -54,6 +55,14 @@ class Client
      */
     private $city;
 
+
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Facture", mappedBy="client", cascade={"all"}, orphanRemoval=true)
+     * @Assert\Valid()
+     */
+    private $factures;
+
     /**
      * @var int
      *
@@ -65,11 +74,17 @@ class Client
     /**
      * @var string
      *
-     * @ORM\Column(name="head_office_addr", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="email", type="string")
+     * @Assert\Email()
      */
-    private $headOfficeAddr;
+    private $email;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contact_person", type="string")
+     */
+    private $contactPerson;
     /**
      * @var string
      *
@@ -87,11 +102,31 @@ class Client
     private $iban;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="bic", type="string", length=255)
+     * @Assert\Bic()
+     */
+    private $bic;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="tva_index", type="float")
      */
     private $tvaIndex;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="vat_number", type="integer")
+     */
+    private $vatNumber;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="phone_number", type="integer")
+     */
+    private $phoneNumber;
 
 
     /**
@@ -303,6 +338,127 @@ class Client
     {
         return $this->city;
     }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Client
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set contactPerson
+     *
+     * @param string $contactPerson
+     *
+     * @return Client
+     */
+    public function setContactPerson($contactPerson)
+    {
+        $this->contactPerson = $contactPerson;
+
+        return $this;
+    }
+
+    /**
+     * Get contactPerson
+     *
+     * @return string
+     */
+    public function getContactPerson()
+    {
+        return $this->contactPerson;
+    }
+
+    /**
+     * Set bic
+     *
+     * @param string $bic
+     *
+     * @return Client
+     */
+    public function setBic($bic)
+    {
+        $this->bic = $bic;
+
+        return $this;
+    }
+
+    /**
+     * Get bic
+     *
+     * @return string
+     */
+    public function getBic()
+    {
+        return $this->bic;
+    }
+
+    /**
+     * Set vatNumber
+     *
+     * @param integer $vatNumber
+     *
+     * @return Client
+     */
+    public function setVatNumber($vatNumber)
+    {
+        $this->vatNumber = $vatNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get vatNumber
+     *
+     * @return integer
+     */
+    public function getVatNumber()
+    {
+        return $this->vatNumber;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param integer $phoneNumber
+     *
+     * @return Client
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return integer
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
     /**
      * Constructor
      */
