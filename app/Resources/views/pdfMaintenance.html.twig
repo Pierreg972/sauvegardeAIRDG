@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <p id="numeroFacture">Facture n° {{facture.id}} du {{ facture.creationDate|date("d.m.Y") }}</p>
     <table>
         <tr id="tableHeader">
             <td>Désignation</td>

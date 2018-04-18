@@ -140,7 +140,7 @@ easy_admin:
                     - {property: 'iban', label: 'IBAN (sans espaces)', type_options: {required: false} }
                     - {property: 'tvaIndex', label: 'Indice à la TVA (en %)'}
             list:
-                actions: ['show', '-edit', '-delete', {name: 'generateAccountStatement', label: 'Extrait de compte', target: __blank}]
+                actions: ['show', '-edit', '-delete']
                 fields:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}
@@ -228,7 +228,7 @@ easy_admin:
             class: AppBundle\Entity\accountStatement
             controller: AppBundle\Controller\FactureController
             list:
-                actions: ['show', {name: 'generateAccountPDF', label: 'Générer PDF'}]
+                actions: ['show', {name: 'generateAccountPDF', label: 'Générer PDF', target: __blank}]
             new:
                 fields:
                     - name

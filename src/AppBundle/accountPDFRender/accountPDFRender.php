@@ -40,7 +40,7 @@ class accountPDFRender
                 ->set('enable_remote', true)
         );
         $dompdf->setPaper('A4', 'portrait');
-        $html = $this->engine->render('pdfAccountStatement.html.twig.html.twig', array('accountStatement' => $accountStatement, 'factures' => $accountStatement->getFactures(), 'client' => $accountStatement->getClient()));
+        $html = $this->engine->render('pdfAccountStatement.html.twig', array('accountStatement' => $accountStatement, 'factures' => $accountStatement->getFactures(), 'client' => $accountStatement->getClient()));
         $dompdf->loadHtml($html);
         $dompdf->render();
         $response = new Response($dompdf->output());
@@ -50,7 +50,7 @@ class accountPDFRender
                 'X-Robots-Tag' => 'noindex',
                 'Content-Disposition' => $response->headers->makeDisposition(
                     ResponseHeaderBag::DISPOSITION_INLINE,
-                    'Extrait de compte n° '.$accountStatement->getId().'.pdf'
+                    'Extrait de compte n '.$accountStatement->getId().'.pdf'
                 ),
             )
         );

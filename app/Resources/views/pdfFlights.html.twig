@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <p id="numeroFacture">Facture n° {{facture.id}} du {{ facture.creationDate|date("d.m.Y") }}</p>
     {% set totalHT = 0 %}
     {% set totalHours = 0 %}
     {% set totalQuantity = 0 %}
