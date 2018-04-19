@@ -8,7 +8,7 @@
     <p id="dateStatement"><strong>Solde au {{ "now"|date("d.m.Y") }}</strong></p>
     <table>
         <tr id="tableHeader">
-            <td>Désignation</td><br>
+            <td>Désignation</td>
             <td>PU</td>
             <td>Quantité</td>
             <td>Montant HT</td>
@@ -36,7 +36,7 @@
     </table>
     <table>
         <tr>
-            <td id="toAlignLeft" class="leftFinalRow" colspan="3"><strong>Solde en votre faveur :</strong></td>
+            <td id="toAlignLeft" class="leftFinalRow" colspan="3"><strong>Reste a régler :</strong></td>
             <td id="toAlignRight" class="rightFinalRow"><strong>{{ total|number_format(2, ',', ' ') }} €</strong></td>
         </tr>
     </table>

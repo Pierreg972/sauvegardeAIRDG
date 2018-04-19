@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table(name="client")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ClientRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Client
 {
@@ -112,13 +113,13 @@ class Client
     /**
      * @var float
      *
-     * @ORM\Column(name="tva_index", type="float")
+     * @ORM\Column(name="tva_index", type="float", nullable=true)
      */
     private $tvaIndex;
 
     /**
-     * @var integer
-     * @ORM\Column(name="vat_number", type="integer")
+     * @var string
+     * @ORM\Column(name="vat_number", type="string")
      */
     private $vatNumber;
 
@@ -414,7 +415,7 @@ class Client
     /**
      * Set vatNumber
      *
-     * @param integer $vatNumber
+     * @param string $vatNumber
      *
      * @return Client
      */
@@ -428,7 +429,7 @@ class Client
     /**
      * Get vatNumber
      *
-     * @return integer
+     * @return string
      */
     public function getVatNumber()
     {
@@ -499,5 +500,19 @@ class Client
     public function getFactures()
     {
         return $this->factures;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function assignVatIndex()
+    {
+        if ("FR" == substr($this->getVatNumber(),0,2)){
+            $this->setTvaIndex(20);
+        }
+        else{
+            $this->setTvaIndex(0);
+        }
     }
 }

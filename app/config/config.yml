@@ -132,7 +132,6 @@ easy_admin:
                     - {property: 'email', label: 'Email'}
                     - {property: 'phoneNumber', label: 'Numéro de téléphone'}
                     - {property: 'contactPerson', label: 'Personne à contacter'}
-                    - {property: 'tvaIndex', label: 'Indice à la TVA (en %)', type: 'choice', type_options: {multiple: false, choices: { Etranger: 0, France: 20 }}}
             edit:
                 title: "Mettre à jour un client"
             list:
