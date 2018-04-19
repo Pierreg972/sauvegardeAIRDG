@@ -94,6 +94,7 @@ easy_admin:
                      - client
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
+                     - {property: 'total', label: 'Montant (en €)'}
                 actions: [{name: 'remplirFacture', label: 'Detailler contenu'}, 'edit', {name: 'generatePDF', label: 'Generer le PDF', target: __blank}]
             show:
                 fields:
@@ -103,14 +104,11 @@ easy_admin:
                      - {property: 'lastUpdate', label: 'Mise à jour le'}
                      - client
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
-                     - {property: 'prestas', label: 'Prestations'}
-                     - {property: 'maintenanceItems', label: 'Catégories de maintenance'}
-                     - flights
             form:
                 fields:
-                    - {property: 'type', css_class: 'col-xs-3'}
-                    - {property: 'client', css_class: 'col-xs-3'}
-                    - {property: 'paid', label: 'Payée (cocher pour affirmer)'}
+                    - {property: 'type', css_class: 'col-xs-4'}
+                    - {property: 'client', css_class: 'col-xs-4'}
+                    - {property: 'paid', label: 'Payée (cocher pour affirmer)', css_class: 'col-xs-4'}
             edit:
                 fields: [{property: 'paid', label: 'Payée (cocher pour affirmer)'}]
 
@@ -120,31 +118,29 @@ easy_admin:
             form:
                 title: 'Rentrer un client en base de données'
                 fields:
-                    - {property: 'name', label: 'Nom de la société', css_class: 'col-xs-4'}
-                    - {property: 'headOfficeAddr', label: 'Adresse', css_class: 'col-xs-4'}
-                    - {property: 'postalCode', label: 'Code postal', css_class: 'col-xs-4'}
-                    - {property: 'city', label: 'Ville', css_class: 'col-xs-4'}
-                    - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}, css_class: 'col-xs-4'}
-                    - {property: 'vatNumber', label: 'Numéro de TVA', css_class: 'col-xs-4'}
-                    - {property: 'societyNumber', label: 'Numero de société', css_class: 'col-xs-4'}
-                    - {property: 'iban', label: 'IBAN', type_options: {required: false}, css_class: 'col-xs-4'}
-                    - {property: 'bic', label: 'BIC', type_options: {required: false}, css_class: 'col-xs-4'}
+                    - {property: 'name', label: 'Nom de la société', css_class: 'col-xs-9'}
+                    - {property: 'headOfficeAddr', label: 'Adresse', css_class: 'col-xs-5'}
+                    - {property: 'postalCode', label: 'Code postal', css_class: 'col-xs-5'}
+                    - {property: 'city', label: 'Ville', css_class: 'col-xs-5'}
+                    - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}, css_class: 'col-xs-5'}
+                    - {property: 'societyNumber', label: 'Numero de société', css_class: 'col-xs-5'}
+                    - {property: 'vatNumber', label: 'Numéro de TVA', css_class: 'col-xs-5'}
+                    - {property: 'iban', label: 'IBAN', type_options: {required: false}, css_class: 'col-xs-5'}
+                    - {property: 'bic', label: 'BIC', type_options: {required: false}, css_class: 'col-xs-5'}
+                    - {property: 'contactPerson', label: 'Personne à contacter', css_class: 'col-xs-4'}
                     - {property: 'email', label: 'Email', css_class: 'col-xs-4'}
                     - {property: 'phoneNumber', label: 'Téléphone', css_class: 'col-xs-4'}
-                    - {property: 'contactPerson', label: 'Personne à contacter', css_class: 'col-xs-4'}
             edit:
                 title: "Mettre à jour un client"
             list:
                 actions: ['show', {name: 'edit', icon: 'pencil', label: '', title: 'Modifier client'}, '-delete']
                 fields:
                     - {property: 'name', label: 'Nom'}
-                    - {property: 'societyNumber', label: 'Numero de société'}
-                    - {property: 'headOfficeAddr', label: 'Adresse du siège social'}
-                    - {property: 'postalCode', label: 'Code postal'}
                     - {property: 'city', label: 'Ville'}
-                    - {property: 'country', label: 'Pays', type: 'country'}
-                    - iban
-                    - {property: 'tvaIndex', label: 'Indice à la TVA'}
+                    - {property: 'country', label: 'Pays'}
+                    - {property: 'email'}
+                    - {property: 'phoneNumber', label: 'Telephone'}
+                    - {property: 'contactPerson', label: 'Contact dans la société'}
             show:
                 actions: ['-delete']
 
@@ -154,9 +150,9 @@ easy_admin:
             new:
                 fields:
                     - { property: 'username', label: "Nom d'utilisateur" }
-                    - email
-                    - { property: 'plainPassword', label: 'Mot de passe', type: 'password' }
-                    - { property: 'roles',  type: 'choice', type_options: {multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' }} }
+                    - {property: 'email'}
+                    - { property: 'plainPassword', label: 'Mot de passe', type: 'password'}
+                    - { property: 'roles',  type: 'choice', type_options: {multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' }}}
                 title: 'Créer un nouvel administrateur'
             edit:
                 title: "Modifier un compte administrateur"

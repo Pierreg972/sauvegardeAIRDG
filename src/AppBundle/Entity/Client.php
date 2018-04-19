@@ -129,7 +129,6 @@ class Client
      */
     private $phoneNumber;
 
-
     /**
      * Get id
      *
