@@ -108,8 +108,8 @@ easy_admin:
                      - flights
             form:
                 fields:
-                    - type
-                    - client
+                    - {property: 'type', css_class: 'col-xs-3'}
+                    - {property: 'client', css_class: 'col-xs-3'}
                     - {property: 'paid', label: 'Payée (cocher pour affirmer)'}
             edit:
                 fields: [{property: 'paid', label: 'Payée (cocher pour affirmer)'}]
@@ -120,22 +120,22 @@ easy_admin:
             form:
                 title: 'Rentrer un client en base de données'
                 fields:
-                    - {property: 'name', label: 'Nom de la société'}
-                    - {property: 'headOfficeAddr', label: 'Adresse complète du siège social'}
-                    - {property: 'postalCode', label: 'Code postal'}
-                    - {property: 'city', label: 'Ville'}
-                    - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}}
-                    - {property: 'vatNumber', label: 'Numéro de TVA'}
-                    - {property: 'societyNumber', label: 'Numero de société'}
-                    - {property: 'iban', label: 'IBAN', type_options: {required: false} }
-                    - {property: 'bic', label: 'BIC', type_options: {required: false} }
-                    - {property: 'email', label: 'Email'}
-                    - {property: 'phoneNumber', label: 'Numéro de téléphone'}
-                    - {property: 'contactPerson', label: 'Personne à contacter'}
+                    - {property: 'name', label: 'Nom de la société', css_class: 'col-xs-4'}
+                    - {property: 'headOfficeAddr', label: 'Adresse', css_class: 'col-xs-4'}
+                    - {property: 'postalCode', label: 'Code postal', css_class: 'col-xs-4'}
+                    - {property: 'city', label: 'Ville', css_class: 'col-xs-4'}
+                    - {property: 'country', label: 'Pays', type: 'country', type_options: {data: 'FR'}, css_class: 'col-xs-4'}
+                    - {property: 'vatNumber', label: 'Numéro de TVA', css_class: 'col-xs-4'}
+                    - {property: 'societyNumber', label: 'Numero de société', css_class: 'col-xs-4'}
+                    - {property: 'iban', label: 'IBAN', type_options: {required: false}, css_class: 'col-xs-4'}
+                    - {property: 'bic', label: 'BIC', type_options: {required: false}, css_class: 'col-xs-4'}
+                    - {property: 'email', label: 'Email', css_class: 'col-xs-4'}
+                    - {property: 'phoneNumber', label: 'Téléphone', css_class: 'col-xs-4'}
+                    - {property: 'contactPerson', label: 'Personne à contacter', css_class: 'col-xs-4'}
             edit:
                 title: "Mettre à jour un client"
             list:
-                actions: ['show', '-edit', '-delete']
+                actions: ['show', {name: 'edit', icon: 'pencil', label: '', title: 'Modifier client'}, '-delete']
                 fields:
                     - {property: 'name', label: 'Nom'}
                     - {property: 'societyNumber', label: 'Numero de société'}

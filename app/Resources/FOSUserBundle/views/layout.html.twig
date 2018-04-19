@@ -1,0 +1,45 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Connexion Backend Air DG</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href='{{ absolute_url(asset('style/bootstrap.min.css')) }}' />
+</head>
+
+<body>
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+
+    <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+
+        <div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+               <h3> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a></h3>
+            {% else %}
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+                <h2 class="form-signin-heading">Veuillez vous connecter</h2><br>
+                <label for="username" class="sr-only"></label>
+                <input type="text" id="username" name="_username" class="form-control" placeholder="Identifiant" required="required" autofocus="">
+                <label for="password" class="sr-only"></label>
+                <input type="password" id="password" name="_password" class="form-control" placeholder="Mot de passe" required="required"><br>
+                <div class="checkbox">
+                    <label><input type="checkbox" id="remember_me" name="_remember_me"> Se souvenir de moi</label>
+                </div><br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Connexion</button>
+            {% endif %}
+        </div>
+
+    </form>
+
+</div>
+
+
+</body></html>
