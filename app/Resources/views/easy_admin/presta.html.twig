@@ -1,17 +1,61 @@
 {% extends '@EasyAdmin/default/new.html.twig' %}
 
-
-{% set _entity_config = easyadmin_entity(app.request.query.get('entity')) %}
-{% trans_default_domain _entity_config.translation_domain %}
-{% set _trans_parameters = { '%entity_name%': _entity_config.name|trans, '%entity_label%': _entity_config.label|trans } %}
-
-
 {% block content_title %}
     <h1>Edition de prestations</h1><hr/>
 {% endblock %}
 
 {% block main %}
     {% block entity_form %}
-        {{ form(form) }}
+        {% set indexer = 0 %}
+        <link rel="stylesheet" href='{{ absolute_url(asset('style/editFacturePresta.css')) }}' />
+
+
+        {{ form_start(form) }}
+            <div class="col-xs-12">
+                <h4>{{ form_label(form.prestas) }}</h4>
+            </div>
+            <div class="prestas" data-prototype="{{ form_widget(form.prestas.vars.prototype)|e('html_attr') }}">
+                {% for presta in form.prestas %}
+                    <div class="col-xs-5 form-group">
+                        {{ form_widget(presta) }}
+                    </div>
+                    {% if loop.last %}
+                        {% set indexer = loop.index %}
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+            <div class="col-xs-12">
+                <hr>
+                {{ form_row(form.sauvegarder_les_modifications) }}
+            </div>
+        {{ form_end(form) }}
+
+
+
+        <script>
+        let $newLinkDiv = $('<div class="col-xs-12"><a href="#" class="add_presta"><i class="fa fa-plus-square"></i><span> Ajouter une prestation</span></a></div>');
+
+        jQuery(document).ready(function() {
+           let $collectionHolder = $('div.prestas');
+            $collectionHolder.append($newLinkDiv);
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+            $('a.add_presta').on('click', function(e) {
+                e.preventDefault();
+                addPrestaForm($collectionHolder, $newLinkDiv);
+            });
+        });
+        function addPrestaForm($collectionHolder, $newLinkDiv) {
+            // Get the data-prototype explained earlier
+            let prototype = $collectionHolder.data('prototype');
+            let index = $collectionHolder.data('index');
+            $collectionHolder.data('index', index + 1);
+            let $newFormDiv = $('<div class="col-xs-5 form-group"></div>').append(prototype);
+            $newLinkDiv.before($newFormDiv);
+
+
+        }
+        </script>
+
     {% endblock entity_form %}
 {% endblock %}

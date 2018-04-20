@@ -16,9 +16,8 @@ class facturePrestaType extends \Symfony\Component\Form\AbstractType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'label'        => 'Ajouter des prestations',
-                'entry_options' => ['label'=>false],
             ))
-            ->add('enregistrer',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
+            ->add('sauvegarder_les_modifications',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save col-xs-2']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
