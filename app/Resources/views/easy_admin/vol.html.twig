@@ -1,16 +1,57 @@
-{% form_theme form with easyadmin_config('design.form_theme') %}
-
-{% set _entity_config = easyadmin_entity(app.request.query.get('entity')) %}
-{% trans_default_domain _entity_config.translation_domain %}
-{% set _trans_parameters = { '%entity_name%': _entity_config.name|trans, '%entity_label%': _entity_config.label|trans } %}
-
 {% extends '@EasyAdmin/default/new.html.twig' %}
+
 {% block content_title %}
     <h1>Remplir les vols liés à cette facture</h1><hr/>
 {% endblock %}
 
 {% block main %}
     {% block entity_form %}
-        {{ form(form) }}
+        <link rel="stylesheet" href='{{ asset('style/editFactureFlight.css') }}' />
+
+
+        {{ form_start(form) }}
+        <div class="col-xs-12">
+            <h4>{{ form_label(form.flights) }}</h4>
+        </div>
+        <div class="flights" data-prototype="{{ form_widget(form.flights.vars.prototype)|e('html_attr') }}">
+            {% for flight in form.flights %}
+                <div class="col-xs-5 form-group">
+                    {{ form_widget(flight) }}
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-xs-12">
+            <hr>
+            {{ form_row(form.sauvegarder_les_modifications) }}
+        </div>
+        {{ form_end(form) }}
+
+
+
+        <script>
+            let $newLinkDiv = $('<div class="col-xs-12"><a href="#" class="add_flight"><i class="fa fa-plus-square"></i><span> Ajouter un vol</span></a></div>');
+
+            jQuery(document).ready(function() {
+                let $collectionHolder = $('div.flights');
+                $collectionHolder.append($newLinkDiv);
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+                $('a.add_flight').on('click', function(e) {
+                    e.preventDefault();
+                    addFlightForm($collectionHolder, $newLinkDiv);
+                });
+            });
+            function addFlightForm($collectionHolder, $newLinkDiv) {
+                // Get the data-prototype explained earlier
+                let prototype = $collectionHolder.data('prototype');
+                let index = $collectionHolder.data('index');
+                $collectionHolder.data('index', index + 1);
+                let $newFormDiv = $('<div class="col-xs-5 form-group"></div>').append(prototype);
+                $newLinkDiv.before($newFormDiv);
+
+
+            }
+        </script>
+
     {% endblock entity_form %}
 {% endblock %}
