@@ -17,7 +17,7 @@ class flightType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('departureDate',   DateType::class, array('label'=>'Date', 'widget' => 'single_text'))
+        $builder->add('departureDate',   DateType::class, array('label'=>'Date', 'html5' => false, 'widget' => 'single_text', 'attr' => array('class' => 'col-xs-2 js-datepicker')))
             ->add('departure',TextType::class, array('label'=>'Lieu de départ'))
             ->add('arrival',     TextType::class, array('label'=>"Lieu d'arrivée"))
             ->add('taxName',TextType::class, array('label'=>'Taxe et parking', 'required' => false))

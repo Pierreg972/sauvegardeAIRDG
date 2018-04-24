@@ -7,6 +7,7 @@
 {% block main %}
     {% block entity_form %}
         <link rel="stylesheet" href='{{ asset('style/editFactureFlight.css') }}' />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
 
 
         {{ form_start(form) }}
@@ -28,6 +29,14 @@
         {{ form_row(form._token) }}
 
 
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+        <script>
+            jQuery(document).ready(function() {
+                $('.js-datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
+            });
+        </script>
         <script>
             let $newLinkDiv = $('<div class="col-xs-12"><a href="#" class="add_flight"><i class="fa fa-plus-square"></i><span> Ajouter un vol</span></a></div>');
 
@@ -47,8 +56,11 @@
                 $collectionHolder.data('index', index + 1);
                 let $newFormDiv = $('<div class="col-xs-5 form-group"></div>').append(prototype);
                 $newLinkDiv.before($newFormDiv);
-
-
+                jQuery(document).ready(function() {
+                    $('.js-datepicker').datepicker({
+                        format: 'yyyy-mm-dd'
+                    });
+                });
             }
         </script>
 

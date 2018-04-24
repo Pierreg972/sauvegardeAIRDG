@@ -16,7 +16,7 @@ class ContentPrestationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('unitPrice',   NumberType::class, array('label'=>'Prix unitaire', 'attr' => array('class' => 'col-xs-2')))
-            ->add('startDate',      DateType::class, array('label'=>'Date de départ', 'widget' => 'single_text', 'attr' => array('class' => 'col-xs-2')))
+            ->add('startDate',      DateType::class, array('label'=>'Date de départ', 'html5' => false, 'widget' => 'single_text', 'attr' => array('class' => 'col-xs-2 js-datepicker')))
             ->add('endDate',     DateType::class, array('label'=>'Date de fin', 'html5' => false, 'widget' => 'single_text', 'attr' => array('class' => 'col-xs-2 js-datepicker')))
         ;
     }

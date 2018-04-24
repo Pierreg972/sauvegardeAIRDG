@@ -5,5 +5,9 @@
     margin-left: 50px;
 }
 .wrapper{
-    background-color: white;
+    background-color: #F5F5F5;
+}
+
+#collection_flight_sauvegarder_les_modifications{
+    margin-bottom: 20px;
 }
