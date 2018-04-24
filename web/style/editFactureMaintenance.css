@@ -1,15 +1,14 @@
-.col-xs-5{
+.col-xs-4{
     border: 2px dotted black;
     border-radius: 12px;
     padding: 8px;
-    margin-right: 15px;
 }
 .col-xs-7{
     border: 2px dotted black;
     border-radius: 12px;
     padding: 8px;
     margin-right: 15px;
-    margin-left: 15%;
+    margin-left: 17%;
 }
 .wrapper{
     background-color: #F5F5F5;
@@ -17,4 +16,11 @@
 
 #facturePrestaType_sauvegarder_les_modifications{
     margin-bottom: 20px;
+}
+
+#title{
+    margin-left: 13%;
+}
+.col-xs-3{
+    margin-left: 17%;
 }

@@ -4,7 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Grpc\Timeval;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -410,7 +409,13 @@ class Flight
         $seconds = date_timestamp_get($this->getFlightDuration());
         $quantity = $seconds / 3600;
         $this->setQuantity($quantity);
-        $total = ($this->getQuantity() * $this->getUnitPrice()) + $this->getTaxPrice() + $this->getPiloteFee();
+        $total = ($this->getQuantity() * $this->getUnitPrice());
+        if($this->getTaxPrice() != null){
+            $total = $total + $this->getTaxPrice();
+        }
+        if($this->getPiloteFee() != null){
+            $total = $total + $this->getPiloteFee();
+        }
         $this->setTotalPrice($total);
         $this->facture->setTotalPrice();
     }
