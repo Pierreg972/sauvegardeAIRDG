@@ -18,7 +18,7 @@ class collectionMaintenanceItemType extends \Symfony\Component\Form\AbstractType
                 'by_reference' => false,
                 'entry_options'=> ['label'=>false],
             ))
-            ->add('enregistrer',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
+            ->add('sauvegarder_les_modifications',      \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, ['attr' => ['class' => 'btn btn-primary action-save']]);
 
     }
 }

@@ -1,16 +1,54 @@
-{% form_theme form with easyadmin_config('design.form_theme') %}
-
-{% set _entity_config = easyadmin_entity(app.request.query.get('entity')) %}
-{% trans_default_domain _entity_config.translation_domain %}
-{% set _trans_parameters = { '%entity_name%': _entity_config.name|trans, '%entity_label%': _entity_config.label|trans } %}
-
 {% extends '@EasyAdmin/default/new.html.twig' %}
+
 {% block content_title %}
     <h1>Remplir les items de maintenance liés à cette facture</h1><hr/>
 {% endblock %}
 
 {% block main %}
     {% block entity_form %}
-        {{ form(form) }}
+        <link rel="stylesheet" href='{{ asset('style/editFactureMaintenance.css') }}' />
+
+
+        {{ form_start(form) }}
+        <div class="col-xs-12">
+            <h4>{{ form_label(form.maintenanceItems) }}</h4>
+        </div>
+        <div class="maintenanceItems" data-prototype="{{ form_widget(form.maintenanceItems.vars.prototype)|e('html_attr') }}">
+            {% for category in form.maintenanceItems %}
+                <div class="col-xs-7 form-group">
+                    {{ include(':easy_admin:maintenanceItem.html.twig') }}
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-xs-12">
+            <hr>
+            {{ form_row(form.sauvegarder_les_modifications) }}
+        </div>
+        {{ form_row(form._token) }}
+
+        <script>
+            let $newLinkDiv = $('<div class="col-xs-12"><a href="#" class="add_category"><i class="fa fa-plus-square"></i><span> Ajouter une catégorie</span></a></div>');
+
+            jQuery(document).ready(function() {
+                let $collectionHolder = $('div.maintenanceItems');
+                $collectionHolder.append($newLinkDiv);
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+                $('a.add_category').on('click', function(e) {
+                    e.preventDefault();
+                    addCategoryForm($collectionHolder, $newLinkDiv);
+                });
+            });
+            function addCategoryForm($collectionHolder, $newLinkDiv) {
+                // Get the data-prototype explained earlier
+                let prototype = $collectionHolder.data('prototype');
+                let index = $collectionHolder.data('index');
+                $collectionHolder.data('index', index + 1);
+                let $newFormDiv = $('<div class="col-xs-7 form-group"></div>').append(prototype);
+                $newLinkDiv.before($newFormDiv);
+
+            }
+        </script>
+
     {% endblock entity_form %}
 {% endblock %}

@@ -1,0 +1,38 @@
+{% block category_content %}
+
+    <div class="col-xs-12">
+        {{ form_row(category.name) }}
+    </div>
+    <div class="category" data-prototype="{{ form_widget(category.items.vars.prototype)|e('html_attr') }}">
+        {% for item in category.items %}
+            <div class="col-xs-5 form-group">
+                {{ form_widget(item) }}
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ form_row(form._token) }}
+
+    <script>
+        let $newItemLinkDiv = $('<div class="col-xs-12"><a href="#" class="add_item"><i class="fa fa-plus-square"></i><span> Ajouter un item</span></a></div>');
+
+        jQuery(document).ready(function() {
+            let $collectionItemHolder = $('div.category');
+            $collectionItemHolder.append($newItemLinkDiv);
+            $collectionItemHolder.data('indexItem', $collectionItemHolder.find(':input').length);
+            $('a.add_item').on('click', function(e) {
+                e.preventDefault();
+                addItemForm($collectionItemHolder, $newItemLinkDiv);
+            });
+        });
+        function addItemForm($collectionItemHolder, $newLinkDiv) {
+            // Get the data-prototype explained earlier
+            let prototypeTest = $collectionItemHolder.data('prototype');
+            let indexItem = $collectionItemHolder.data('indexItem');
+            $collectionItemHolder.data('indexItem', indexItem + 1);
+            let $newFormDiv = $('<div class="col-xs-5 form-group"></div>').append(prototypeTest);
+            $newLinkDiv.before($newFormDiv);
+
+        }
+    </script>
+{% endblock %}
