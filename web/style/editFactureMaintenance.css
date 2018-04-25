@@ -21,11 +21,8 @@
     margin: 10px;
 }
 .categoryRemove{
-    margin-top: 10px;
-    color: red;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    color: #D42124;
+    text-align: right;
 }
 
 #title{
