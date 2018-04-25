@@ -54,7 +54,7 @@
                 let prototype = $collectionHolder.data('prototype');
                 let index = $collectionHolder.data('index');
                 $collectionHolder.data('index', index + 1);
-                let $newFormDiv = $('<div class="col-xs-5 form-group"></div>').append(prototype);
+                let $newFormDiv = $('<div class="col-xs-5 form-group"></div>').append(prototype.replace(/__name__/g, index));
                 $newLinkDiv.before($newFormDiv);
                 jQuery(document).ready(function() {
                     $('.js-datepicker').datepicker({
