@@ -95,7 +95,7 @@ easy_admin:
                      - type
                      - {property: 'paid', label: 'Payée', type: 'boolean'}
                      - {property: 'total', label: 'Montant (en €)'}
-                actions: [{name: 'remplirFacture',icon: 'edit', label: 'Contenu', title: 'Editer le contenu de la facture'}, {name: 'edit', label: 'Changer le type', title: 'Le changement de type efface le contenu'}, {name: 'generatePDF', label: 'PDF',icon: 'eye',title: 'Générer le pdf', target: __blank}]
+                actions: [{name: 'remplirFacture',icon: 'edit', label: 'Contenu', title: 'Editer le contenu de la facture'}, {name: 'edit', label: 'Editer propriétés', title: 'Le changement de type efface le contenu'}, {name: 'generatePDF', label: 'PDF',icon: 'eye',title: 'Générer le pdf', target: __blank}]
             show:
                 fields:
                      - {property: 'id', label: 'Numéro'}

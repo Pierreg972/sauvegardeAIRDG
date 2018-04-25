@@ -4,8 +4,14 @@
 
 {% if ( (item.entity != 'Administrateurs' and item.entity != 'Prestations' and item.entity != 'Vols' and item.entity != 'Maintenance') or ((item.entity == 'Administrateurs') and is_granted("ROLE_ADMIN")) ) %}
     <br>
-    {{  parent() }}
+ {% if ( item.entity == 'Extrait_Compte' ) %}
+     <li class=" ">
+         <a href="?entity=Extrait_Compte&amp;action=list&amp;menuIndex=6&amp;submenuIndex=-1"><i class="fa fa-chevron-circle-right"></i><span>Extrait de Compte</span></a>
+     </li>
+
+ {% else %}
+     {{  parent() }}
+ {% endif %}
 {% endif %}
 
 {% endblock menu_item %}
-

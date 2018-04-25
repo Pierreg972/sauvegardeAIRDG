@@ -410,12 +410,8 @@ class Flight
         $quantity = $seconds / 3600;
         $this->setQuantity($quantity);
         $total = ($this->getQuantity() * $this->getUnitPrice());
-        if($this->getTaxPrice() != null){
-            $total = $total + $this->getTaxPrice();
-        }
-        if($this->getPiloteFee() != null){
-            $total = $total + $this->getPiloteFee();
-        }
+        $total = $total + $this->getTaxPrice();
+        $total = $total + $this->getPiloteFee();
         $this->setTotalPrice($total);
         $this->facture->setTotalPrice();
     }
