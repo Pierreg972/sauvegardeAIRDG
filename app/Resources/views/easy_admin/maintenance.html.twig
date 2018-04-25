@@ -18,18 +18,7 @@
         </div>
         <div class="maintenanceItems" id="category_wrapper" data-prototype="{{ form_widget(form.maintenanceItems.vars.prototype)|e('html_attr') }}">
             {% for category in form.maintenanceItems %}
-                <div class="col-xs-7 form-group" id="count">
-                    <p class="col-xs-12">
-                        {{ form_row(category.name) }}
-                    </p>
-                    <div class="items" id="item_wrapper" data-prototype="{{ form_widget(category.items.vars.prototype)|e('html_attr') }}">
-                        {% for item in category.items %}
-                            <div id="count_item" class="col-xs-4 form-group">
-                                {{ form_widget(item) }}
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
+                {{ include(':easy_admin:maintenanceItem.html.twig') }}
             {% endfor %}
         </div>
         <div class="col-xs-12">
@@ -41,12 +30,10 @@
 
         <script>
             let $newLinkDiv = $('<div class="col-xs-12"><a href="#" class="add_category"><i class="fa fa-plus-square"></i><span> Ajouter une catégorie</span></a></div>');
-            let $newItemLinkDiv = $('<div><a href="#" class="add_item"><i class="fa fa-plus-square"></i><span> Ajouter un item</span></a></div>');
 
             jQuery(document).ready(function() {
                 let $collectionHolder = $('div.maintenanceItems');
                 $collectionHolder.append($newLinkDiv);
-                console.log($collectionHolder.find('div#count').length);
                 $collectionHolder.data('index', $collectionHolder.find('div#count').length);
                     $('a.add_category').on('click', function(e) {
                         e.preventDefault();
@@ -54,15 +41,17 @@
                     });
 
                 let $collectionItemHolder = $('div.items');
-                $collectionItemHolder.append($newItemLinkDiv);
-                $collectionItemHolder.data('indexItem', $collectionItemHolder.find('div#count_item').length);
+                $collectionItemHolder.data('indexItem', $collectionItemHolder.find(':input').length);
                 $('a.add_item').on('click', function(e) {
                     e.preventDefault();
                     let indexItem = $collectionItemHolder.data('indexItem');
+                    $collectionItemHolder = $($collectionItemHolder.get($(this).attr('id')));
+                    console.log($collectionItemHolder);
                     $collectionItemHolder.data('indexItem', indexItem + 1);
                     let prototypeTest = $collectionItemHolder.data('prototype').replace(/__name__/g, indexItem);
                     let $newFormDiv = $('<div class="col-xs-4 form-group"></div>').append(prototypeTest);
                     $(this).before($newFormDiv);
+                    $collectionItemHolder = $('div.items');
                 });
             });
             function addCategoryForm($collectionHolder, $newLinkDiv) {
@@ -75,6 +64,31 @@
 
             }
 
+        </script>
+        <script>
+            jQuery(document).ready(function() {
+                // Get the ul that holds the collection of tags
+                let $collectionDeleteHolder = $('div.maintenanceItems');
+
+                // add a delete link to all of the existing tag form li elements
+                $collectionDeleteHolder.find('div#deleting').each(function() {
+                    addMaintenanceItemFormDeleteLink($(this));
+                });
+
+                // ... the rest of the block from above
+            });
+            function addMaintenanceItemFormDeleteLink($tagFormLi) {
+                let $removeFormA = $('<a href="#" class="categoryRemove"><i class="fa fa-close"></i><span> Supprimer cette catégorie</span></a>');
+                $tagFormLi.append($removeFormA);
+
+                $removeFormA.on('click', function(e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+
+                    // remove the li for the tag form
+                    $tagFormLi.remove();
+                });
+            }
         </script>
 
     {% endblock entity_form %}

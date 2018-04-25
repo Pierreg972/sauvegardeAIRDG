@@ -14,8 +14,18 @@
     background-color: #F5F5F5;
 }
 
-#facturePrestaType_sauvegarder_les_modifications{
+.action-save{
     margin-bottom: 20px;
+}
+.add_item{
+    margin: 10px;
+}
+.categoryRemove{
+    margin-top: 10px;
+    color: red;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 #title{
