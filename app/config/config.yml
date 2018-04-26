@@ -209,5 +209,6 @@ easy_admin:
         color_scheme: 'dark'
         form_theme:
             - 'vertical'
+            - 'easy_admin/_maintenance_theme.html.twig'
         assets:
             favicon: '..\..\doc\images\icon.png'

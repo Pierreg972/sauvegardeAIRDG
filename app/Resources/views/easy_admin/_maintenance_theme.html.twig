@@ -1,0 +1,65 @@
+<link rel="stylesheet" href='{{ asset('style/editFactureMaintenance.css') }}'/>
+
+{% block _collection_maintenance_item_maintenanceItems_entry_widget %}
+    {#{{ dump(form.vars.name) }}#}
+    <div class="col-xs-12">
+        <div class="form-group  field-text">
+            <label class="control-label required"
+                   for="collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_name">Nom de catégorie</label>
+            <input id="collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_name"
+                   name="collection_maintenance_item[maintenanceItems][{{ form.vars.name }}][name]" required="required"
+                   class="form-control" type="text"/>
+        </div>
+    </div>
+    <div class="items" id="{{ form.vars.name }}"
+         data-prototype="<div id=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name__&quot;><div class=&quot;form-group  field-text&quot;><label class=&quot;control-label required&quot; for=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name___name&quot;>Dénomination</label><input type=&quot;text&quot; id=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name___name&quot; name=&quot;collection_maintenance_item[maintenanceItems][{{ form.vars.name }}][items][__name__][name]&quot; required=&quot;required&quot; class=&quot;form-control&quot; /></div><div class=&quot;form-group  field-number&quot;><label class=&quot;control-label required&quot; for=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name___unitPrice&quot;>Prix</label><input type=&quot;text&quot; id=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name___unitPrice&quot; name=&quot;collection_maintenance_item[maintenanceItems][{{ form.vars.name }}][items][__name__][unitPrice]&quot; required=&quot;required&quot; class=&quot;form-control&quot; /></div><div class=&quot;form-group  field-number&quot;><label class=&quot;control-label required&quot; for=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name___quantity&quot;>Quantité</label><input type=&quot;text&quot; id=&quot;collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name___quantity&quot; name=&quot;collection_maintenance_item[maintenanceItems][{{ form.vars.name }}][items][__name__][quantity]&quot; required=&quot;required&quot; class=&quot;form-control&quot; /></div></div><div class=&quot;text-right field-collection-item-action&quot;><a href=&quot;#&quot; onclick=&quot;            $(function() {if (event.preventDefault) event.preventDefault(); else event.returnValue = false;var containerDiv = $('#collection_maintenance_item_maintenanceItems_{{ form.vars.name }}_items___name__').parents('.form-group:first');var parentDiv = containerDiv.parents('[data-prototype]:first');containerDiv.remove();parentDiv.trigger('easyadmin.collection.item-deleted');if (0 == parentDiv.children().length &amp;&amp; 'undefined' !== parentDiv.attr('data-empty-collection')) {$(parentDiv.attr('data-empty-collection')).insertBefore(parentDiv);}});&quot; class=&quot;text-danger&quot;><i class=&quot;fa fa-remove&quot;></i>Supprimer l&amp;#039;élément</a></div>">
+    </div>
+    <div>
+        <a id="{{ form.vars.name }}" href="#" class="add_item col-xs-12"><i class="fa fa-plus-square"></i><span> Ajouter un item</span></a>
+    </div>
+    <a href="#" class="categoryRemove col-xs-12"><i class="fa fa-close"></i><span> Supprimer cette catégorie</span></a>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            let $collectionItemHolder = $('div.items');
+            $collectionItemHolder.data('indexItem', $collectionItemHolder.find(':input').length);
+            $('a.add_item').on('click', function (e) {
+                e.preventDefault();
+                let indexItem = $collectionItemHolder.get($(this).attr('id'));
+                $collectionItemHolder = $($collectionItemHolder.get($(this).attr('id')));
+                $collectionItemHolder.data('indexItem', indexItem + 1);
+                let prototypeTest = $collectionItemHolder.data('prototype').replace(/__name__/g, indexItem);
+                let $newFormDiv = $('<div class="col-xs-4 form-group"></div>').append(prototypeTest);
+                $(this).before($newFormDiv);
+                $collectionItemHolder = $('div.items');
+            });
+        });
+    </script>
+    {#<script>#}
+    {#jQuery(document).ready(function() {#}
+    {#// Get the ul that holds the collection of tags#}
+    {#let $collectionDeleteHolder = $('div.maintenanceItems');#}
+
+    {#// add a delete link to all of the existing tag form li elements#}
+    {#$collectionDeleteHolder.find('div#deleting').each(function() {#}
+    {#addMaintenanceItemFormDeleteLink($(this));#}
+    {#});#}
+
+    {#// ... the rest of the block from above#}
+    {#});#}
+    {#function addMaintenanceItemFormDeleteLink($tagFormLi) {#}
+    {#let $removeFormA = $('<a href="#" class="categoryRemove col-xs-12"><i class="fa fa-close"></i><span> Supprimer cette catégorie</span></a>');#}
+    {#$tagFormLi.append($removeFormA);#}
+
+    {#$removeFormA.on('click', function(e) {#}
+    {#// prevent the link from creating a "#" on the URL#}
+    {#e.preventDefault();#}
+
+    {#// remove the li for the tag form#}
+    {#$tagFormLi.remove();#}
+    {#});#}
+    {#}#}
+    {#</script>#}
+{% endblock %}

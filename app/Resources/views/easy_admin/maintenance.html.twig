@@ -4,12 +4,6 @@
     <h1>Facture de maintenance d'un appareil</h1><hr/>
 {% endblock %}
 
-{% form_theme form _self %}
-
-{% block _collection_maintenance_item_maintenanceItems_entry_widget %}
-    test
-{% endblock %}
-
 {% block main %}
 
     {% block entity_form %}
@@ -52,7 +46,6 @@
                     e.preventDefault();
                     let indexItem = $collectionItemHolder.data('indexItem');
                     $collectionItemHolder = $($collectionItemHolder.get($(this).attr('id')));
-                    console.log($collectionItemHolder);
                     $collectionItemHolder.data('indexItem', indexItem + 1);
                     let prototypeTest = $collectionItemHolder.data('prototype').replace(/__name__/g, indexItem);
                     let $newFormDiv = $('<div class="col-xs-4 form-group"></div>').append(prototypeTest);
@@ -64,7 +57,7 @@
                 // Get the data-prototype explained earlier
                 let index = $collectionHolder.data('index');
                 let prototype = $collectionHolder.data('prototype').replace(/__name__/g, index);
-                let $newFormDiv = $('<div id="deleting" class="col-xs-7 form-group"></div>').append(prototype);
+                let $newFormDiv = $('<div id="deleting" class="col-xs-7"></div>').append(prototype);
                 $collectionHolder.data('index', index + 1);
                 $newLinkDiv.before($newFormDiv);
 
